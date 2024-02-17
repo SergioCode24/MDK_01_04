@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+string console(string text, string color = "", int existOfOnderlining = 0) {
+	string empty = "";
+	string red = "\x1b[91m";
+	string green = "\x1b[92m";
+	string blue = "\x1b[94m";
+	string aqua = "\x1b[96m";
+	string yellow = "\x1b[93m";
+	string purple = "\x1b[95m";
+	string onderlining = "\033[4m";
+	if (color == "red" and existOfOnderlining == 0 or color == "red" and existOfOnderlining != 0 and existOfOnderlining != 1) {
+		cout << red << text;
+	}
+	else if (color == "green" and existOfOnderlining == 0 or color == "green" and existOfOnderlining != 0 and existOfOnderlining != 1) {
+		cout << green << text;
+	}
+	else if (color == "blue" and existOfOnderlining == 0 or color == "blue" and existOfOnderlining != 0 and existOfOnderlining != 1) {
+		cout << blue << text;
+	}
+	else if (color == "aqua" and existOfOnderlining == 0 or color == "aqua" and existOfOnderlining != 0 and existOfOnderlining != 1) {
+		cout << aqua << text;
+	}
+	else if (color == "yellow" and existOfOnderlining == 0 or color == "yellow" and existOfOnderlining != 0 and existOfOnderlining != 1) {
+		cout << yellow << text;
+	}
+	else if (color == "purple" and existOfOnderlining == 0 or color == "purple" and existOfOnderlining != 0 and existOfOnderlining != 1) {
+		cout << purple << text;
+	}
+	else if (color == "red" and existOfOnderlining == 1) {
+		cout << red << onderlining << text;
+	}
+	else if (color == "green" and existOfOnderlining == 1) {
+		cout << green << onderlining << text;
+	}
+	else if (color == "blue" and existOfOnderlining == 1) {
+		cout << blue << onderlining << text;
+	}
+	else if (color == "aqua" and existOfOnderlining == 1) {
+		cout << aqua << onderlining << text;
+	}
+	else if (color == "yellow" and existOfOnderlining == 1) {
+		cout << yellow << onderlining << text;
+	}
+	else if (color == "purple" and existOfOnderlining == 1) {
+		cout << purple << onderlining << text;
+	}
+	else {
+		cout << text;
+	}
+	return empty;
+}
+int main() {
+	setlocale(0, "");
+	int existOfOnderlining = 0;;
+	string text = "";
+	string color = "";
+	console("Привет, мир!", "purple", 1);
+	int _; cin >> _;
+	return 0;
+}

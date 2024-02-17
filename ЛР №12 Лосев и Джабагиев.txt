@@ -1,0 +1,906 @@
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(0, "");
+	int _;
+	int lives = 3;
+	string name = "user";
+	string newname = "0";
+	int countquestionstandart = 10;
+	int countquestionuser = 0;
+	string red = "\x1b[91m";
+	string green = "\x1b[92m";
+	string yellow = "\x1b[93m";
+	string blue = "\x1b[94m";
+	string purple = "\x1b[95m";
+	string aqua = "\x1b[96m";
+	string grey = "\x1b[90m";
+	string white = "\x1b[0m";
+	string colorsystemuser = "0";
+	string colortrueansweruser = "0";
+	string colorfolseansweruser = "0";
+	string colorerroruser = "0";
+	string colorwinuser = "0";
+	string colorloseuser = "0";
+	string colorsystem = white;
+	string colortrueanswer = green;
+	string colorfolseanswer = red;
+	string colorerror = red;
+	string colorwin = green;
+	string colorlose = red;
+	int scorecolorsystem = 0;
+	int scorecolortrueanswer = 0;
+	int scorecolorfolseanswer = 0;
+	int scorecolorerror = 0;
+	int scorecolorwin = 0;
+	int scorecolorlose = 0;
+	int scoresettings = 0;
+	while (lives != 0) {
+		system("cls");
+		int choicemenu = 0;
+		int	choicesetting = 0;;
+		int choicename = 0;
+		int scorename = 0;
+		if (scorename == 1) {
+			scorename--;
+		}
+		int scorequestion = 0;
+		if (scorequestion == 1) {
+			scorequestion--;
+		}
+		int scorecolor = 0;
+		if (scorecolor == 1) {
+			scorecolor--;
+		}
+		if (scorecolortrueanswer == 1) {
+			scorecolortrueanswer--;
+		}
+		if (scorecolorfolseanswer == 1) {
+			scorecolorfolseanswer--;
+		}
+		if (scorecolorsystem == 1) {
+			scorecolorsystem--;
+		}
+		if (scorecolorerror == 1) {
+			scorecolorerror--;
+		}
+		if (scorecolorwin == 1) {
+			scorecolorwin--;
+		}
+		if (scorecolorlose == 1) {
+			scorecolorlose--;
+		}
+		if (scoresettings == 1) {
+			scoresettings--;
+		}
+		string empty = "0";
+		int choicequestion = 0;
+		int points = 0;
+		int answertrue = 0;
+		int answeruser = 0;
+		int scorequestionnumber = 0;
+		if (colorsystemuser != "0") {
+			colorsystem = colorsystemuser;
+		}
+		if (colortrueansweruser != "0") {
+			colortrueanswer = colortrueansweruser;
+		}
+		if (colorfolseansweruser != "0") {
+			colorfolseanswer = colorfolseansweruser;
+		}
+		if (colorerroruser != "0") {
+			colorerror = colorerroruser;
+		}
+		if (colorwinuser != "0") {
+			colorwin = colorwinuser;
+		}
+		if (colorloseuser != "0") {
+			colorlose = colorloseuser;
+		}
+		int choicecolor = 0;
+		cout << colorsystem << "Викторина\n\n";
+		cout << "Привествуем, " << name << "!\n\n";
+		cout << "Меню:\n\n";
+		cout << "1 - Начать игру;\n";
+		cout << "2 - Настройки;\n";
+		cout << "3 - Правила;\n";
+		cout << "4 - Выйти.\n\n";
+		cout << "Выберите пункт меню: ";
+		cin >> choicemenu;
+		switch (choicemenu) {
+		case 1:
+			countquestionstandart = countquestionstandart + countquestionuser;
+			if (countquestionstandart == 12) {
+				system("cls");
+				scorequestionnumber++;
+				answertrue = 1;
+				countquestionstandart--;
+				cout << "Игрок: " << name << " | жизни: " << lives << " | очки: " << points << endl << endl;
+				cout << "Вопрос " << scorequestionnumber << ": Что такое HTML?\n";
+				cout << "1 - Гипертекстовый макет языка;\t\t";
+				cout << "2 - Язык программирования;\n";
+				cout << "3 - Протокол передачи данных;\t\t";
+				cout << "4 - Графический редактор.\n\n";
+				cout << "Выбрать ответ: ";
+				cin >> answeruser;
+				if (answeruser == answertrue) {
+					points++;
+					cout << colortrueanswer << "\nПравильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+					cin >> empty;
+				}
+				else {
+					lives--;
+					cout << colorfolseanswer << "\nНеправильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+					cin >> empty;
+				}
+			}
+			if (countquestionstandart == 11) {
+				system("cls");
+				scorequestionnumber++;
+				answertrue = 3;
+				countquestionstandart--;
+				cout << "Игрок: " << name << " | жизни: " << lives << " | очки: " << points << endl << endl;
+				cout << "Вопрос " << scorequestionnumber << ": Что обозначает аббревиатура 'CSS' в веб-разработке?\n";
+				cout << "1 - Computer Style Sheets;\t\t";
+				cout << "2 - Creative Style Selector;\n";
+				cout << "3 - Cascading Style Sheets;\t\t";
+				cout << "4 - Centralized Style Syntax.\n\n";
+				cout << "Выбрать ответ: ";
+				cin >> answeruser;
+				if (answeruser == answertrue) {
+					points++;
+					cout << colortrueanswer << "\nПравильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+					cin >> empty;
+				}
+				else {
+					lives--;
+					cout << colorfolseanswer << "\nНеправильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+					cin >> empty;
+				}
+			}
+			if (countquestionstandart == 10) {
+				system("cls");
+				scorequestionnumber++;
+				answertrue = 1;
+				countquestionstandart--;
+				cout << "Игрок: " << name << " | жизни: " << lives << " | очки: " << points << endl << endl;
+				cout << "Вопрос " << scorequestionnumber << ": Какой язык программирования используется для разработки мобильных приложений под Android?\n";
+				cout << "1 - Java;\t\t";
+				cout << "2 - JavaScript;\n";
+				cout << "3 - C#;\t\t\t";
+				cout << "4 - Python.\n\n";
+				cout << "Выбрать ответ: ";
+				cin >> answeruser;
+				if (answeruser == answertrue) {
+					points++;
+					cout << colortrueanswer << "\nПравильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+					cin >> empty;
+				}
+				else {
+					lives--;
+					cout << colorfolseanswer << "\nНеправильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+					cin >> empty;
+				}
+				if (lives == 0) {
+					system("cls");
+					cout << "Жизни закончились. " << colorlose << "Вы проиграли!" << colorsystem;
+					int _; cin >> _;
+					return 0;
+				}
+			}
+			if (countquestionstandart == 9) {
+				system("cls");
+				scorequestionnumber++;
+				answertrue = 1;
+				countquestionstandart--;
+				cout << "Игрок: " << name << " | жизни: " << lives << " | очки: " << points << endl << endl;
+				cout << "Вопрос " << scorequestionnumber << ": Что означает аббревиатура 'URL'\n";
+				cout << "1 - Uniform Resource Locator;\t\t";
+				cout << "2 - Universal Resource Locator;\n";
+				cout << "3 - Unified Resource Language;\t\t";
+				cout << "4 - User Registration Link.\n\n";
+				cout << "Выбрать ответ: ";
+				cin >> answeruser;
+				if (answeruser == answertrue) {
+					points++;
+					cout << colortrueanswer << "\nПравильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+					cin >> empty;
+				}
+				else {
+					lives--;
+					cout << colorfolseanswer << "\nНеправильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+					cin >> empty;
+				}
+				if (lives == 0) {
+					system("cls");
+					cout << "Жизни закончились. " << colorlose << "Вы проиграли!" << colorsystem;
+					int _; cin >> _;
+					return 0;
+				}
+			}
+			if (countquestionstandart == 8) {
+				system("cls");
+				scorequestionnumber++;
+				answertrue = 3;
+				cout << "Игрок: " << name << " | жизни: " << lives << " | очки: " << points << endl << endl;
+				cout << "Вопрос " << scorequestionnumber << ": Какой вид атаки связан с злонамеренной подменой данных между клиентом и сервером?\n";
+				cout << "1 - SQL-инъекция;\t\t";
+				cout << "2 - XSS-атака;\n";
+				cout << "3 - CSRF-атака;\t\t\t";
+				cout << "4 - DOS-атака.\n\n";
+				cout << "Выбрать ответ: ";
+				cin >> answeruser;
+				if (answeruser == answertrue) {
+					points++;
+					cout << colortrueanswer << "\nПравильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+					cin >> empty;
+				}
+				else {
+					lives--;
+					cout << colorfolseanswer << "\nНеправильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+					cin >> empty;
+				}
+				if (lives == 0) {
+					system("cls");
+					cout << "Жизни закончились. " << colorlose << "Вы проиграли!" << colorsystem;
+					int _; cin >> _;
+					return 0;
+				}
+			}
+			system("cls");
+			scorequestionnumber++;
+			answertrue = 2;
+			cout << "Игрок: " << name << " | жизни: " << lives << " | очки: " << points << endl << endl;
+			cout << "Вопрос " << scorequestionnumber << ": Что такое 'API' в контексте программирования?\n";
+			cout << "1 - Active Programming Interface;\t\t";
+			cout << "2 - Application Programming Interface;\n";
+			cout << "3 - Advanced Protocol Integration;\t\t";
+			cout << "4 - Automated Program Instance.\n\n";
+			cout << "Выбрать ответ: ";
+			cin >> answeruser;
+			if (answeruser == answertrue) {
+				points++;
+				cout << colortrueanswer << "\nПравильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			else {
+				lives--;
+				cout << colorfolseanswer << "\nНеправильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (lives == 0) {
+				system("cls");
+				cout << "Жизни закончились. " << colorlose << "Вы проиграли!" << colorsystem;
+				int _; cin >> _;
+				return 0;
+			}
+			system("cls");
+			scorequestionnumber++;
+			answertrue = 4;
+			cout << "Игрок: " << name << " | жизни: " << lives << " | очки: " << points << endl << endl;
+			cout << "Вопрос " << scorequestionnumber << ": Какой тип базы данных используется для хранения данных в таблицах с отношениями между ними?\n";
+			cout << "1 - NoSQL;\t\t";
+			cout << "2 - SQLite;\n";
+			cout << "3 - MySQL;\t\t";
+			cout << "4 - Relational.\n\n";
+			cout << "Выбрать ответ: ";
+			cin >> answeruser;
+			if (answeruser == answertrue) {
+				points++;
+				cout << colortrueanswer << "\nПравильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			else {
+				lives--;
+				cout << colorfolseanswer << "\nНеправильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (lives == 0) {
+				system("cls");
+				cout << "Жизни закончились. " << colorlose << "Вы проиграли!" << colorsystem;
+				int _; cin >> _;
+				return 0;
+			}
+			system("cls");
+			scorequestionnumber++;
+			answertrue = 3;
+			cout << "Игрок: " << name << " | жизни: " << lives << " | очки: " << points << endl << endl;
+			cout << "Вопрос " << scorequestionnumber << ": Что такое 'Git' в разработке ПО\n";
+			cout << "1 - Система управления базами данных;\t\t";
+			cout << "2 - Язык программирования;\n";
+			cout << "3 - Система управления версиями;\t\t";
+			cout << "4 - Графический дизайн.\n\n";
+			cout << "Выбрать ответ: ";
+			cin >> answeruser;
+			if (answeruser == answertrue) {
+				points++;
+				cout << colortrueanswer << "\nПравильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			else {
+				lives--;
+				cout << colorfolseanswer << "\nНеправильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (lives == 0) {
+				system("cls");
+				cout << "Жизни закончились. " << colorlose << "Вы проиграли!" << colorsystem;
+				int _; cin >> _;
+				return 0;
+			}
+			system("cls");
+			scorequestionnumber++;
+			answertrue = 3;
+			cout << "Игрок: " << name << " | жизни: " << lives << " | очки: " << points << endl << endl;
+			cout << "Вопрос " << scorequestionnumber << ": Какой язык программирования часто используется для анализа данных и машинного обучения?\n";
+			cout << "1 - C++;\t\t";
+			cout << "2 - Ruby;\n";
+			cout << "3 - Python;\t\t";
+			cout << "4 - Swift.\n\n";
+			cout << "Выбрать ответ: ";
+			cin >> answeruser;
+			if (answeruser == answertrue) {
+				points++;
+				cout << colortrueanswer << "\nПравильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			else {
+				lives--;
+				cout << colorfolseanswer << "\nНеправильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (lives == 0) {
+				system("cls");
+				cout << "Жизни закончились. " << colorlose << "Вы проиграли!" << colorsystem;
+				int _; cin >> _;
+				return 0;
+			}
+			system("cls");
+			scorequestionnumber++;
+			answertrue = 1;
+			cout << "Игрок: " << name << " | жизни: " << lives << " | очки: " << points << endl << endl;
+			cout << "Вопрос " << scorequestionnumber << ": Что обозначает аббревиатура 'IoT' в сфере информационных технологий?\n";
+			cout << "1 - Internet of Things;\t\t\t";
+			cout << "2 - Internet of Telecommunications;\n";
+			cout << "3 - Information over Time;\t\t";
+			cout << "4 - Internet of Trends.\n\n";
+			cout << "Выбрать ответ: ";
+			cin >> answeruser;
+			if (answeruser == answertrue) {
+				points++;
+				cout << colortrueanswer << "\nПравильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			else {
+				lives--;
+				cout << colorfolseanswer << "\nНеправильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (lives == 0) {
+				system("cls");
+				cout << "Жизни закончились. " << colorlose << "Вы проиграли!" << colorsystem;
+				int _; cin >> _;
+				return 0;
+			}
+			system("cls");
+			scorequestionnumber++;
+			answertrue = 2;
+			cout << "Игрок: " << name << " | жизни: " << lives << " | очки: " << points << endl << endl;
+			cout << "Вопрос " << scorequestionnumber << ": Какая структура данных используется для хранения элементов в порядке 'первый вошел, первый вышел' (FIFO)\n";
+			cout << "1 - Стек (Stack);\t\t";
+			cout << "2 - Очередь (Queue);\n";
+			cout << "3 - Массив (Array);\t\t";
+			cout << "4 - Множество (Set).\n\n";
+			cout << "Выбрать ответ: ";
+			cin >> answeruser;
+			if (answeruser == answertrue) {
+				points++;
+				cout << colortrueanswer << "\nПравильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			else {
+				lives--;
+				cout << colorfolseanswer << "\nНеправильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (lives == 0) {
+				system("cls");
+				cout << "Жизни закончились. " << colorlose << "Вы проиграли!" << colorsystem;
+				int _; cin >> _;
+				return 0;
+			}
+			system("cls");
+			scorequestionnumber++;
+			answertrue = 4;
+			cout << "Игрок: " << name << " | жизни: " << lives << " | очки: " << points << endl << endl;
+			cout << "Вопрос " << scorequestionnumber << ": Что означает аббревиатура 'HTTP' в контексте веб - разработки ? \n";
+			cout << "1 - Hyper Transfer Text Protocol;\t\t";
+			cout << "2 - Hyperlink Text Transfer Protocol;\n";
+			cout << "3 - Hyper Text Transport Protocol;\t\t";
+			cout << "4 - Hypertext Transfer Protocol.\n\n";
+			cout << "Выбрать ответ: ";
+			cin >> answeruser;
+			if (answeruser == answertrue) {
+				points++;
+				cout << colortrueanswer << "\nПравильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			else {
+				lives--;
+				cout << colorfolseanswer << "\nНеправильный ответ! " << colorsystem << "Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (lives == 0) {
+				system("cls");
+				cout << "Жизни закончились. " << colorlose << "Вы проиграли!" << colorsystem;
+				int _; cin >> _;
+				return 0;
+			}
+			system("cls");
+			cout << colorwin << "Вы победили! " << colorsystem << "Количество оставшихся жизней: " << lives << ", количество набранных баллов: " << points;
+			int _; cin >> _;
+			return 0;
+			break;
+		case 2:
+			while (scoresettings != 1) {
+			system("cls");
+			cout << "Настройки\n\n";
+			cout << "1 - Редактировать имя игрока;\n";
+			cout << "2 - Редактировать количество вопросов;\n";
+			cout << "3 - Редактировать цвет интерфейса;\n";
+			cout << "4 - Выйти.\n\n";
+			cout << "Выберите пункт настроек: ";
+			cin >> choicesetting;
+			switch (choicesetting) {
+			case 1:
+				scoresettings++;
+				while (scorename != 1) {
+					system("cls");
+					cout << "Введите новое имя: ";
+					cin >> newname;
+					cout << "Сохранить новое имя?\n\n";
+					cout << "1 - Да;\n";
+					cout << "2 - Нет.\n\n";
+					cout << "Выберите вариант ответа: ";
+					cin >> choicename;
+					switch (choicename) {
+					case 1:
+						scorename++;
+						name = newname;
+						break;
+					case 2:
+						scorename++;
+						break;
+					default:
+						cout << colorerror << "Ошибка " << colorsystem << "при выборе варианта ответа. Для выхода введите любое не пустое значение: ";
+						cin >> empty;
+						break;
+					}
+				}
+				break;
+			case 2:
+				scoresettings++;
+				while (scorequestion != 1) {
+					system("cls");
+					cout << "Какое количество вопросов Вы бы предпочли?\n\n";
+					cout << "1 - Восемь;\n";
+					cout << "2 - Десять;\n";
+					cout << "3 - Двенадцать.\n\n";
+					cout << "Выберите вариант ответа: ";
+					cin >> choicequestion;
+					switch (choicequestion) {
+					case 1:
+						scorequestion++;
+						countquestionuser = -2;
+						break;
+					case 2:
+						scorequestion++;
+						break;
+					case 3:
+						scorequestion++;
+						countquestionuser = 2;
+						break;
+					default:
+						cout << colorerror << "Ошибка " << colorsystem << "при выборе варианта ответа. Для выхода введите любое не пустое значение: ";
+						cin >> empty;
+						break;
+					}
+				}
+				break;
+			case 3:
+				scoresettings++;
+				while (scorecolor != 1) {
+					system("cls");
+					cout << "Цвет чего Вы бы хотели изменить?\n\n";
+					cout << "1 - Правильных ответов;\n";
+					cout << "2 - Неправильных ответов;\n";
+					cout << "3 - Обычного текста;\n";
+					cout << "4 - Ошибок;\n";
+					cout << "5 - Победы;\n";
+					cout << "6 - Поражения.\n\n";
+					cout << "Выберите вариант ответа: ";
+					cin >> choicequestion;
+					switch (choicequestion) {
+						while (scorecolortrueanswer != 1) {
+					case 1:
+						if (scorecolor == 0) {
+							scorecolor++;
+						}
+						system("cls");
+						cout << "На какой цвет хотели бы заменить?\n\n";
+						cout << "1 - Красный;\n";
+						cout << "2 - Зелёный;\n";
+						cout << "3 - Жёлтый;\n";
+						cout << "4 - Синий;\n";
+						cout << "5 - Фиолетовый;\n";
+						cout << "6 - Лазурный;\n";
+						cout << "7 - Серый;\n";
+						cout << "8 - Белый.\n\n";
+						cout << "Выберите вариант ответа: ";
+						cin >> choicecolor;
+						switch (choicecolor) {
+						case 1:
+							scorecolortrueanswer++;
+							colortrueansweruser = red;
+							break;
+						case 2:
+							scorecolortrueanswer++;
+							colortrueansweruser = green;
+							break;
+						case 3:
+							scorecolortrueanswer++;
+							colortrueansweruser = yellow;
+							break;
+						case 4:
+							scorecolortrueanswer++;
+							colortrueansweruser = blue;
+							break;
+						case 5:
+							scorecolortrueanswer++;
+							colortrueansweruser = purple;
+							break;
+						case 6:
+							scorecolortrueanswer++;
+							colortrueansweruser = aqua;
+							break;
+						case 7:
+							scorecolortrueanswer++;
+							colortrueansweruser = grey;
+							break;
+						case 8:
+							scorecolortrueanswer++;
+							colortrueansweruser = white;
+							break;
+						default:
+							cout << colorerror << "Ошибка " << colorsystem << "при выборе варианта ответа. Для выхода введите любое не пустое значение: ";
+							cin >> empty;
+							break;
+						}
+						}
+						break;
+						while (scorecolorfolseanswer != 1) {
+					case 2:
+						if (scorecolor == 0) {
+							scorecolor++;
+						}
+						system("cls");
+						cout << "На какой цвет хотели бы заменить?\n\n";
+						cout << "1 - Красный;\n";
+						cout << "2 - Зелёный;\n";
+						cout << "3 - Жёлтый;\n";
+						cout << "4 - Синий;\n";
+						cout << "5 - Фиолетовый;\n";
+						cout << "6 - Лазурный;\n";
+						cout << "7 - Серый;\n";
+						cout << "8 - Белый.\n\n";
+						cout << "Выберите вариант ответа: ";
+						cin >> choicecolor;
+						switch (choicecolor) {
+						case 1:
+							scorecolorfolseanswer++;
+							colorfolseansweruser = red;
+							break;
+						case 2:
+							scorecolorfolseanswer++;
+							colorfolseansweruser = green;
+							break;
+						case 3:
+							scorecolorfolseanswer++;
+							colorfolseansweruser = yellow;
+							break;
+						case 4:
+							scorecolorfolseanswer++;
+							colorfolseansweruser = blue;
+							break;
+						case 5:
+							scorecolorfolseanswer++;
+							colorfolseansweruser = purple;
+							break;
+						case 6:
+							scorecolorfolseanswer++;
+							colorfolseansweruser = aqua;
+							break;
+						case 7:
+							scorecolorfolseanswer++;
+							colorfolseansweruser = grey;
+							break;
+						case 8:
+							scorecolorfolseanswer++;
+							colorfolseansweruser = white;
+							break;
+						default:
+							cout << colorerror << "Ошибка " << colorsystem << "при выборе варианта ответа. Для выхода введите любое не пустое значение: ";
+							cin >> empty;
+							break;
+						}
+						}
+						break;
+						while (scorecolorsystem != 1) {
+					case 3:
+						if (scorecolor == 0) {
+							scorecolor++;
+						}
+						system("cls");
+						cout << "На какой цвет хотели бы заменить?\n\n";
+						cout << "1 - Красный;\n";
+						cout << "2 - Зелёный;\n";
+						cout << "3 - Жёлтый;\n";
+						cout << "4 - Синий;\n";
+						cout << "5 - Фиолетовый;\n";
+						cout << "6 - Лазурный;\n";
+						cout << "7 - Серый;\n";
+						cout << "8 - Белый.\n\n";
+						cout << "Выберите вариант ответа: ";
+						cin >> choicecolor;
+						switch (choicecolor) {
+						case 1:
+							scorecolorsystem++;
+							colorsystemuser = red;
+							break;
+						case 2:
+							scorecolorsystem++;
+							colorsystemuser = green;
+							break;
+						case 3:
+							scorecolorsystem++;
+							colorsystemuser = yellow;
+							break;
+						case 4:
+							scorecolorsystem++;
+							colorsystemuser = blue;
+							break;
+						case 5:
+							scorecolorsystem++;
+							colorsystemuser = purple;
+							break;
+						case 6:
+							scorecolorsystem++;
+							colorsystemuser = aqua;
+							break;
+						case 7:
+							scorecolorsystem++;
+							colorsystemuser = grey;
+							break;
+						case 8:
+							scorecolorsystem++;
+							colorsystemuser = white;
+							break;
+						default:
+							cout << colorerror << "Ошибка " << colorsystem << "при выборе варианта ответа. Для выхода введите любое не пустое значение: ";
+							cin >> empty;
+							break;
+						}
+						}
+						break;
+						while (scorecolorerror != 1) {
+					case 4:
+						if (scorecolor == 0) {
+							scorecolor++;
+						}
+						system("cls");
+						cout << "На какой цвет хотели бы заменить?\n\n";
+						cout << "1 - Красный;\n";
+						cout << "2 - Зелёный;\n";
+						cout << "3 - Жёлтый;\n";
+						cout << "4 - Синий;\n";
+						cout << "5 - Фиолетовый;\n";
+						cout << "6 - Лазурный;\n";
+						cout << "7 - Серый;\n";
+						cout << "8 - Белый.\n\n";
+						cout << "Выберите вариант ответа: ";
+						cin >> choicecolor;
+						switch (choicecolor) {
+						case 1:
+							scorecolorerror++;
+							colorerroruser = red;
+							break;
+						case 2:
+							scorecolorerror++;
+							colorerroruser = green;
+							break;
+						case 3:
+							scorecolorerror++;
+							colorerroruser = yellow;
+							break;
+						case 4:
+							scorecolorerror++;
+							colorerroruser = blue;
+							break;
+						case 5:
+							scorecolorerror++;
+							colorerroruser = purple;
+							break;
+						case 6:
+							scorecolorerror++;
+							colorerroruser = aqua;
+							break;
+						case 7:
+							scorecolorerror++;
+							colorerroruser = grey;
+							break;
+						case 8:
+							scorecolorerror++;
+							colorerroruser = white;
+							break;
+						default:
+							cout << colorerror << "Ошибка " << colorsystem << "при выборе варианта ответа. Для выхода введите любое не пустое значение: ";
+							cin >> empty;
+							break;
+						}
+						}
+						break;
+						while (scorecolorwin != 1) {
+					case 5:
+						if (scorecolor == 0) {
+							scorecolor++;
+						}
+						system("cls");
+						cout << "На какой цвет хотели бы заменить?\n\n";
+						cout << "1 - Красный;\n";
+						cout << "2 - Зелёный;\n";
+						cout << "3 - Жёлтый;\n";
+						cout << "4 - Синий;\n";
+						cout << "5 - Фиолетовый;\n";
+						cout << "6 - Лазурный;\n";
+						cout << "7 - Серый;\n";
+						cout << "8 - Белый.\n\n";
+						cout << "Выберите вариант ответа: ";
+						cin >> choicecolor;
+						switch (choicecolor) {
+						case 1:
+							scorecolorwin++;
+							colorwinuser = red;
+							break;
+						case 2:
+							scorecolorwin++;
+							colorwinuser = green;
+							break;
+						case 3:
+							scorecolorwin++;
+							colorwinuser = yellow;
+							break;
+						case 4:
+							scorecolorwin++;
+							colorwinuser = blue;
+							break;
+						case 5:
+							scorecolorwin++;
+							colorwinuser = purple;
+							break;
+						case 6:
+							scorecolorwin++;
+							colorwinuser = aqua;
+							break;
+						case 7:
+							scorecolorwin++;
+							colorwinuser = grey;
+							break;
+						case 8:
+							scorecolorwin++;
+							colorwinuser = white;
+							break;
+						default:
+							cout << colorerror << "Ошибка " << colorsystem << "при выборе варианта ответа. Для выхода введите любое не пустое значение: ";
+							cin >> empty;
+							break;
+						}
+						}
+						break;
+						while (scorecolorlose != 1) {
+					case 6:
+						if (scorecolor == 0) {
+							scorecolor++;
+						}
+						system("cls");
+						cout << "На какой цвет хотели бы заменить?\n\n";
+						cout << "1 - Красный;\n";
+						cout << "2 - Зелёный;\n";
+						cout << "3 - Жёлтый;\n";
+						cout << "4 - Синий;\n";
+						cout << "5 - Фиолетовый;\n";
+						cout << "6 - Лазурный;\n";
+						cout << "7 - Серый;\n";
+						cout << "8 - Белый.\n\n";
+						cout << "Выберите вариант ответа: ";
+						cin >> choicecolor;
+						switch (choicecolor) {
+						case 1:
+							scorecolorlose++;
+							colorloseuser = red;
+							break;
+						case 2:
+							scorecolorlose++;
+							colorloseuser = green;
+							break;
+						case 3:
+							scorecolorlose++;
+							colorloseuser = yellow;
+							break;
+						case 4:
+							scorecolorlose++;
+							colorloseuser = blue;
+							break;
+						case 5:
+							scorecolorlose++;
+							colorloseuser = purple;
+							break;
+						case 6:
+							scorecolorlose++;
+							colorloseuser = aqua;
+							break;
+						case 7:
+							scorecolorlose++;
+							colorloseuser = grey;
+							break;
+						case 8:
+							scorecolorlose++;
+							colorloseuser = white;
+							break;
+						default:
+							cout << colorerror << "Ошибка " << colorsystem << "при выборе варианта ответа. Для выхода введите любое не пустое значение: ";
+							cin >> empty;
+							break;
+						}
+						}
+						break;
+					default:
+						cout << colorerror << "Ошибка " << colorsystem << "при выборе варианта ответа. Для выхода введите любое не пустое значение: ";
+						cin >> empty;
+						break;
+					}
+				}
+			case 4:
+				scoresettings++;
+				cout << "Для выхода введите любое не пустое значение: ";
+				cin >> empty;
+				break;
+			default:
+				cout << colorerror << "Ошибка " << colorsystem << "при выборе варианта ответа. Для выхода введите любое не пустое значение: ";
+				cin >> empty;
+				break;
+			}
+			}
+			break;
+			break;
+		case 3:
+			system("cls");
+			cout << "Игрок получает очки за правильный ответ на вопрос;\n";
+			cout << "Игрок проходит дальше за правильный ответ;\n";
+			cout << "Игрок теряет жизнь при неправильном ответе.\n\n";
+			cout << "Для выхода введите любое не пустое значение: ";
+			cin >> empty;
+			break;
+		case 4:
+			system("cls");
+			cin >> _;
+			return 0;
+			break;
+		default:
+			cout << colorerror << "Ошибка " << colorsystem << "при выборе варианта ответа. Для выхода введите любое не пустое значение: ";
+			cin >> empty;
+			break;
+			}
+	}
+	cin >> _;
+	return 0;
+}

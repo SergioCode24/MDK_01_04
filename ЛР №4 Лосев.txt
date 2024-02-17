@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(0, "");
+	int firstnumber = 0;
+	int secondnumber = 0;
+	int answer = 0;
+	string enter = "0";
+	string red = "\x1b[91m";
+	string green = "\x1b[92m";
+	string white = "\x1b[0m";
+	cout << "Введите число: ";
+	cin >> firstnumber;
+	while (secondnumber - 9) {
+		system("cls");
+		secondnumber++;
+		cout << "Решите пример: " << firstnumber << " x " << secondnumber << endl;
+		cout << "Ответ: ";
+		cin >> answer;
+		if (answer == firstnumber * secondnumber) {
+			cout << "Пример решен " << green << "правильно" << white << "!" << endl;
+			cout << "Для продолжения введите любое не пустое значение: ";
+			cin >> enter;
+		}
+		else {
+			cout << red << "Ошибка" << white << ", пример решен " << red << "неверно" << white << "!";
+			int _; cin >> _;
+			return 0;
+		}
+		cout << "Примеры " << green << "решены" << white << ", " << green << "поздравляем" << white << "!";
+	}
+	int _; cin >> _;
+	return 0;
+	}

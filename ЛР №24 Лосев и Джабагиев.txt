@@ -1,0 +1,2296 @@
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(0, "");
+	int choiceMenu = 0;
+	int scoreMenu = 0;
+	int scoreSettings = 0;
+	int choiceSettings = 0;
+	int choiceSettingsPlayer = 0;
+	int scoreSettingsPlayer = 0;
+	int choiceSettingsPlayer1 = 0;
+	int choiceSettingsPlayer2 = 0;
+	int scoreSettingsPlayer1 = 0;
+	int scoreSettingsPlayer2 = 0;
+	int choiceNick = 0;
+	int scoreNick = 0;
+	int scoreFigure = 0;
+	int choiceFigure = 0;
+	int scoreColor = 0;
+	int choiceColor = 0;
+	int scoreSettingsComputer = 0;
+	int choiceSettingsComputer = 0;
+	int scoreColorInterface = 0;
+	int choiceColorInterface = 0;
+	int scoreStatistics = 0;
+	int choiceStatistics = 0;
+	int winPlayer1 = 0;
+	int winPlayer2 = 0;
+	int winComputer = 0;
+	int losePlayer1 = 0;
+	int losePlayer2 = 0;
+	int loseComputer = 0;
+	int scorePlay = 0;
+	int choicePlay = 0;
+	int result = 0;
+	int scoreDraw = 0;
+	int scorePlayer1 = 0;
+	int scorePlayer2 = 0;
+	int scoreSubPlayer = 0;
+	int scoreInformation = 0;
+	int scoreStepComputer = 0;
+	int randomStep = 0;
+	float drawPlayer1 = 0;
+	float drawPlayer2 = 0;
+	float drawComputer = 0;
+	float pointsPlayer1 = 0;
+	float pointsPlayer2 = 0;
+	float pointsComputer = 0;
+	string empty = " ";
+	string red = "\x1b[91m";
+	string green = "\x1b[92m";
+	string yellow = "\x1b[93m";
+	string blue = "\x1b[94m";
+	string purple = "\x1b[95m";
+	string aqua = "\x1b[96m";
+	string grey = "\x1b[90m";
+	string white = "\x1b[0m";
+	string nickPlayer1 = "Игрок 1";
+	string nickPlayer2 = "Игрок 2";
+	string computer = "Компьютер";
+	string textColorPlayer1 = "синий";
+	string textColorPlayer2 = "красный";
+	string colorPlayer1 = blue;
+	string colorPlayer2 = red;
+	string newNick = " ";
+	string colorComputer = red;
+	string textColorComputer = "красный";
+	string colorNumber = yellow;
+	string colorField = white;
+	string colorInputOutput = grey;
+	string player[2] = { nickPlayer1, nickPlayer2 };
+	string playerAndComputer[2] = { nickPlayer1, computer };
+	string colorPlayer[2] = { colorPlayer1, colorPlayer2 };
+	string colorPlayerAndComputer[2] = { colorPlayer1, colorComputer };
+	string information[9] = {};
+	string number = "0";
+	string figurePlayer1 = "X";
+	string figurePlayer2 = "O";
+	string newFigure = " ";
+	string figureComputer = "O";
+	string one = "1";
+	string two = "2";
+	string three = "3";
+	string four = "4";
+	string five = "5";
+	string six = "6";
+	string seven = "7";
+	string eight = "8";
+	string nine = "9";
+	string randomStepString = "0";
+	srand(time(0));
+	if (scoreMenu == 1) {
+		scoreMenu--;
+	}
+	while (scoreMenu != 1) {
+		system("cls");
+		cout << white << "'Крестики нолики'\n\n";
+		cout << colorNumber << "1" << white << " - Начать игру;\n";
+		cout << colorNumber << "2" << white << " - Статистика;\n";
+		cout << colorNumber << "3" << white << " - Настройки;\n";
+		cout << colorNumber << "4" << white << " - Выйти.\n\n";
+		cout << "Ввод: " << colorInputOutput;
+		cin >> choiceMenu;
+		cout << white;
+		switch (choiceMenu) {
+		case 1:
+			if (scorePlay == 1) {
+				scorePlay--;
+			}
+			while (scorePlay != 1) {
+				system("cls");
+				cout << "'Крестики нолики'\n\n";
+				cout << colorNumber << "1" << white << " - Одиночная игра\n";
+				cout << colorNumber << "2" << white << " - Два игрока\n\n";
+				cout << colorNumber << "3" << white << " - Назад\n\n";
+				cout << "Ввод: " << colorInputOutput;
+				cin >> choicePlay;
+				cout << white;
+				switch (choicePlay) {
+				case 1:
+					one = '1';
+					two = '2';
+					three = '3';
+					four = '4';
+					five = '5';
+					six = '6';
+					seven = '7';
+					eight = '8';
+					nine = '9';
+					result = 0;
+					scoreDraw = 0;
+					for (int i = 0; i < 9; i++) {
+						information[i] = "";
+					}
+					scoreSubPlayer = 0;
+					scoreInformation = 0;
+					number = "0";
+					for (int x = 0; result != 1; x++) {
+						if (x == 2 and scoreSubPlayer == 1) {
+							x = x - 2;
+						}
+						else if (x > 0 and scoreSubPlayer != 1) {
+							x--;
+						}
+						scoreSubPlayer = 0;
+						if (playerAndComputer[x] == computer and scoreInformation == 0 and number != "0") {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[0] = "\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white;
+							}
+						}
+						else if (playerAndComputer[x] == nickPlayer1 and scoreInformation == 0 and number != "0") {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[0] = "\t\t| Игрок '" + colorComputer + computer + white + "' ход на клетку: " + colorInputOutput + number + white;
+							}
+						}
+						if (playerAndComputer[x] == computer and scoreInformation == 1) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[1] = "\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white;
+							}
+						}
+						else if (playerAndComputer[x] == nickPlayer1 and scoreInformation == 1) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[1] = "\t\t| Игрок '" + colorComputer + computer + white + "' ход на клетку: " + colorInputOutput + number + white;
+							}
+						}
+						if (playerAndComputer[x] == computer and scoreInformation == 2) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[2] = "\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white;
+							}
+						}
+						else if (playerAndComputer[x] == nickPlayer1 and scoreInformation == 2) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[2] = "\t\t| Игрок '" + colorComputer + computer + white + "' ход на клетку: " + colorInputOutput + number + white;
+							}
+						}
+						if (playerAndComputer[x] == computer and scoreInformation == 3) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[3] = "\t\t\t\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						else if (playerAndComputer[x] == nickPlayer1 and scoreInformation == 3) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[3] = "\t\t\t\t\t| Игрок '" + colorComputer + computer + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						if (playerAndComputer[x] == computer and scoreInformation == 4) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[4] = "\t\t\t\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						else if (playerAndComputer[x] == nickPlayer1 and scoreInformation == 4) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[4] = "\t\t\t\t\t| Игрок '" + colorComputer + computer + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						if (playerAndComputer[x] == computer and scoreInformation == 5) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[5] = "\t\t\t\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						else if (playerAndComputer[x] == nickPlayer1 and scoreInformation == 5) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[5] = "\t\t\t\t\t| Игрок '" + colorComputer + computer + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						if (playerAndComputer[x] == computer and scoreInformation == 6) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[6] = "\t\t\t\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						else if (playerAndComputer[x] == nickPlayer1 and scoreInformation == 6) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[6] = "\t\t\t\t\t| Игрок '" + colorComputer + computer + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						if (playerAndComputer[x] == computer and scoreInformation == 7) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[7] = "\t\t\t\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						else if (playerAndComputer[x] == nickPlayer1 and scoreInformation == 7) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[7] = "\t\t\t\t\t| Игрок '" + colorComputer + computer + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						if (playerAndComputer[x] == computer and scoreInformation == 8) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[8] = "\t\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						else if (playerAndComputer[x] == nickPlayer1 and scoreInformation == 8) {
+							if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+								number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+								number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+								number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+								number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+								number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+								number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+								number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+								number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+								number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[8] = "\t\t\t| Игрок '" + colorComputer + computer + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white or
+							number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+							number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white or
+							number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+							number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white or
+							number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+							number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white or
+							number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+							number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white or
+							number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+							number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white or
+							number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+							number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white or
+							number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+							number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white or
+							number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+							number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white or
+							number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+							scoreInformation++;
+						}
+						if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white) {
+							one = colorComputer + figureComputer + white;
+							scoreDraw++;
+						}
+						if (number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white) {
+							one = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						if (number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white) {
+							two = colorComputer + figureComputer + white;
+							scoreDraw++;
+						}
+						if (number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white) {
+							two = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						if (number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white) {
+							three = colorComputer + figureComputer + white;
+							scoreDraw++;
+						}
+						if (number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white) {
+							three = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						if (number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white) {
+							four = colorComputer + figureComputer + white;
+							scoreDraw++;
+						}
+						if (number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white) {
+							four = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						if (number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white) {
+							five = colorComputer + figureComputer + white;
+							scoreDraw++;
+						}
+						if (number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white) {
+							five = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						if (number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white) {
+							six = colorComputer + figureComputer + white;
+							scoreDraw++;
+						}
+						if (number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white) {
+							six = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+							scoreSubPlayer = 1;
+						}
+						if (number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white) {
+							seven = colorComputer + figureComputer + white;
+							scoreDraw++;
+						}
+						if (number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white) {
+							seven = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						if (number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white) {
+							eight = colorComputer + figureComputer + white;
+							scoreDraw++;
+						}
+						if (number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white) {
+							eight = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						if (number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white) {
+							nine = colorComputer + figureComputer + white;
+							scoreDraw++;
+						}
+						if (number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+							nine = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						system("cls");
+						cout << "'Крестики нолики'\t\t\t| Информация\n\n";
+						cout << "\t\t" << one << " | " << two << " | " << three << information[0] << endl;
+						cout << "\t\t- - - - -\n";
+						cout << "\t\t" << four << " | " << five << " | " << six << information[1] << endl;
+						cout << "\t\t- - - - -\n";
+						cout << "\t\t" << seven << " | " << eight << " | " << nine << information[2] << endl << endl;
+						cout << information[3];
+						cout << information[4];
+						cout << information[5];
+						cout << information[6];
+						cout << information[7];
+						if (x == 0) {
+							cout << "Ходит игрок '" << colorPlayerAndComputer[1] << playerAndComputer[1] << white << "': " << colorInputOutput << number << white;
+						}
+						else {
+							cout << "Ходит " << colorPlayerAndComputer[0] << playerAndComputer[0] << white << ": " << colorInputOutput << number << white;
+						}
+						cout << information[8];
+						if (one == colorPlayer1 + figurePlayer1 + white and two == colorPlayer1 + figurePlayer1 + white and three == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							loseComputer++;
+							result = 1;
+						}
+						if (one == colorPlayer1 + figurePlayer1 + white and four == colorPlayer1 + figurePlayer1 + white and seven == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							loseComputer++;
+							result = 1;
+						}
+						if (one == colorPlayer1 + figurePlayer1 + white and five == colorPlayer1 + figurePlayer1 + white and nine == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							loseComputer++;
+							result = 1;
+						}
+						if (seven == colorPlayer1 + figurePlayer1 + white and eight == colorPlayer1 + figurePlayer1 + white and nine == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							loseComputer++;
+							result = 1;
+						}
+						if (seven == colorPlayer1 + figurePlayer1 + white and five == colorPlayer1 + figurePlayer1 + white and three == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							loseComputer++;
+							result = 1;
+						}
+						if (nine == colorPlayer1 + figurePlayer1 + white and six == colorPlayer1 + figurePlayer1 + white and three == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							loseComputer++;
+							result = 1;
+						}
+						if (two == colorPlayer1 + figurePlayer1 + white and five == colorPlayer1 + figurePlayer1 + white and eight == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							loseComputer++;
+							result = 1;
+						}
+						if (four == colorPlayer1 + figurePlayer1 + white and five == colorPlayer1 + figurePlayer1 + white and six == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							loseComputer++;
+							losePlayer2++;
+							result = 1;
+						}
+						if (one == colorComputer + figureComputer + white and two == colorComputer + figureComputer + white and three == colorComputer + figureComputer + white) {
+							cout << endl << endl << "Победил игрок '" << colorComputer << computer << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winComputer++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (one == colorComputer + figureComputer + white and four == colorComputer + figureComputer + white and seven == colorComputer + figureComputer + white) {
+							cout << endl << endl << "Победил игрок '" << colorComputer << computer << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winComputer++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (one == colorComputer + figureComputer + white and five == colorComputer + figureComputer + white and nine == colorComputer + figureComputer + white) {
+							cout << endl << endl << "Победил игрок '" << colorComputer << computer << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winComputer++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (seven == colorComputer + figureComputer + white and eight == colorComputer + figureComputer + white and nine == colorComputer + figureComputer + white) {
+							cout << endl << endl << "Победил игрок '" << colorComputer << computer << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winComputer++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (seven == colorComputer + figureComputer + white and five == colorComputer + figureComputer + white and three == colorComputer + figureComputer + white) {
+							cout << endl << endl << "Победил игрок '" << colorComputer << computer << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winComputer++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (nine == colorComputer + figureComputer + white and six == colorComputer + figureComputer + white and three == colorComputer + figureComputer + white) {
+							cout << endl << endl << "Победил игрок '" << colorComputer << computer << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winComputer++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (two == colorComputer + figureComputer + white and five == colorComputer + figureComputer + white and eight == colorComputer + figureComputer + white) {
+							cout << endl << endl << "Победил игрок '" << colorComputer << computer << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winComputer++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (four == colorComputer + figureComputer + white and five == colorComputer + figureComputer + white and six == colorComputer + figureComputer + white) {
+							cout << endl << endl << "Победил игрок '" << colorComputer << computer << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winComputer++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (scoreDraw == 9) {
+							cout << endl << endl << "Ничья! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							drawPlayer1++;
+							drawComputer++;
+							result = 1;
+						}
+						system("cls");
+						cout << "'Крестики нолики'\t\t\t| Информация\n\n";
+						cout << "\t\t" << one << " | " << two << " | " << three << information[0] << endl;
+						cout << "\t\t- - - - -\n";
+						cout << "\t\t" << four << " | " << five << " | " << six << information[1] << endl;
+						cout << "\t\t- - - - -\n";
+						cout << "\t\t" << seven << " | " << eight << " | " << nine << information[2] << endl << endl;
+						cout << information[3];
+						cout << information[4];
+						cout << information[5];
+						cout << information[6];
+						cout << information[7];
+						if (x == 0) {
+							cout << "Ходит игрок '" << colorPlayerAndComputer[x] << playerAndComputer[x] << white << "': " << colorInputOutput;
+							if (result != 1) {
+								cin >> number;
+								cout << white;
+							}
+						}
+						if (x == 1) {
+							cout << "Ходит " << colorPlayerAndComputer[x] << playerAndComputer[x] << white << ": " << colorInputOutput;
+							if (result != 1) {
+								if (scoreStepComputer == 1) {
+									scoreStepComputer--;
+								}
+								while (scoreStepComputer != 1) {
+									randomStep = rand() % 9 + 1;
+									if (randomStep == 1 and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white or
+										randomStep == 2 and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white or
+										randomStep == 3 and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white or
+										randomStep == 4 and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white or
+										randomStep == 5 and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white or
+										randomStep == 6 and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white or
+										randomStep == 7 and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white or
+										randomStep == 8 and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white or
+										randomStep == 9 and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+										scoreStepComputer++;
+										if (randomStep == 1) {
+											randomStepString = "1";
+										}
+										if (randomStep == 2) {
+											randomStepString = "2";
+										}
+										if (randomStep == 3) {
+											randomStepString = "3";
+										}
+										if (randomStep == 4) {
+											randomStepString = "4";
+										}
+										if (randomStep == 5) {
+											randomStepString = "5";
+										}
+										if (randomStep == 6) {
+											randomStepString = "6";
+										}
+										if (randomStep == 7) {
+											randomStepString = "7";
+										}
+										if (randomStep == 8) {
+											randomStepString = "8";
+										}
+										if (randomStep == 9) {
+											randomStepString = "9";
+										}
+										number = randomStepString;
+										cout << number << white;
+									}
+								}
+							}
+						}
+						cout << information[8];
+						if (number == "1" and playerAndComputer[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorComputer + figureComputer + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "1" and playerAndComputer[x] == computer and one != colorComputer + figureComputer + white and one != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "2" and playerAndComputer[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorComputer + figureComputer + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "2" and playerAndComputer[x] == computer and two != colorComputer + figureComputer + white and two != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "3" and playerAndComputer[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorComputer + figureComputer + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "3" and playerAndComputer[x] == computer and three != colorComputer + figureComputer + white and three != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "4" and playerAndComputer[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorComputer + figureComputer + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "4" and playerAndComputer[x] == computer and four != colorComputer + figureComputer + white and four != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "5" and playerAndComputer[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorComputer + figureComputer + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "5" and playerAndComputer[x] == computer and five != colorComputer + figureComputer + white and five != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "6" and playerAndComputer[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorComputer + figureComputer + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "6" and playerAndComputer[x] == computer and six != colorComputer + figureComputer + white and six != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "7" and playerAndComputer[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorComputer + figureComputer + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "7" and playerAndComputer[x] == computer and seven != colorComputer + figureComputer + white and seven != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "8" and playerAndComputer[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorComputer + figureComputer + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "8" and playerAndComputer[x] == computer and eight != colorComputer + figureComputer + white and eight != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "9" and playerAndComputer[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorComputer + figureComputer + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "9" and playerAndComputer[x] == computer and nine != colorComputer + figureComputer + white and nine != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+					}
+					break;
+				case 2:
+					one = '1';
+					two = '2';
+					three = '3';
+					four = '4';
+					five = '5';
+					six = '6';
+					seven = '7';
+					eight = '8';
+					nine = '9';
+					result = 0;
+					scoreDraw = 0;
+					for (int i = 0; i < 9; i++) {
+						information[i] = "";
+					}
+					scoreSubPlayer = 0;
+					scoreInformation = 0;
+					number = "0";
+					for (int x = 0; result != 1; x++) {
+						if (x == 2 and scoreSubPlayer == 1) {
+							x = x - 2;
+						}
+						else if (x > 0 and scoreSubPlayer != 1) {
+							x--;
+						}
+						scoreSubPlayer = 0;
+						if (player[x] == nickPlayer2 and scoreInformation == 0 and number != "0") {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[0] = "\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white;
+							}
+						}
+						else if (player[x] == nickPlayer1 and scoreInformation == 0 and number != "0") {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[0] = "\t\t| Игрок '" + colorPlayer2 + nickPlayer2 + white + "' ход на клетку: " + colorInputOutput + number + white;
+							}
+						}
+						if (player[x] == nickPlayer2 and scoreInformation == 1) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[1] = "\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white;
+							}
+						}
+						else if (player[x] == nickPlayer1 and scoreInformation == 1) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[1] = "\t\t| Игрок '" + colorPlayer2 + nickPlayer2 + white + "' ход на клетку: " + colorInputOutput + number + white;
+							}
+						}
+						if (player[x] == nickPlayer2 and scoreInformation == 2) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[2] = "\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white;
+							}
+						}
+						else if (player[x] == nickPlayer1 and scoreInformation == 2) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[2] = "\t\t| Игрок '" + colorPlayer2 + nickPlayer2 + white + "' ход на клетку: " + colorInputOutput + number + white;
+							}
+						}
+						if (player[x] == nickPlayer2 and scoreInformation == 3) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[3] = "\t\t\t\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						else if (player[x] == nickPlayer1 and scoreInformation == 3) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[3] = "\t\t\t\t\t| Игрок '" + colorPlayer2 + nickPlayer2 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						if (player[x] == nickPlayer2 and scoreInformation == 4) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[4] = "\t\t\t\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						else if (player[x] == nickPlayer1 and scoreInformation == 4) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[4] = "\t\t\t\t\t| Игрок '" + colorPlayer2 + nickPlayer2 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						if (player[x] == nickPlayer2 and scoreInformation == 5) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[5] = "\t\t\t\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						else if (player[x] == nickPlayer1 and scoreInformation == 5) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[5] = "\t\t\t\t\t| Игрок '" + colorPlayer2 + nickPlayer2 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						if (player[x] == nickPlayer2 and scoreInformation == 6) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[6] = "\t\t\t\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						else if (player[x] == nickPlayer1 and scoreInformation == 6) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[6] = "\t\t\t\t\t| Игрок '" + colorPlayer2 + nickPlayer2 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						if (player[x] == nickPlayer2 and scoreInformation == 7) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[7] = "\t\t\t\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						else if (player[x] == nickPlayer1 and scoreInformation == 7) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[7] = "\t\t\t\t\t| Игрок '" + colorPlayer2 + nickPlayer2 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						if (player[x] == nickPlayer2 and scoreInformation == 8) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[8] = "\t\t| Игрок '" + colorPlayer1 + nickPlayer1 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						else if (player[x] == nickPlayer1 and scoreInformation == 8) {
+							if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+								number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+								number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+								number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+								number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+								number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+								number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+								number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+								number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+								number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+								number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+								number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+								number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+								number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+								number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+								number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+								number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+								number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+								information[8] = "\t\t| Игрок '" + colorPlayer2 + nickPlayer2 + white + "' ход на клетку: " + colorInputOutput + number + white + "\n\n";
+							}
+						}
+						if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white or
+							number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white or
+							number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white or
+							number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white or
+							number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white or
+							number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white or
+							number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white or
+							number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white or
+							number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white or
+							number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white or
+							number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white or
+							number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white or
+							number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white or
+							number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white or
+							number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white or
+							number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white or
+							number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white or
+							number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+							scoreInformation++;
+						}
+						if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white) {
+							one = colorPlayer2 + figurePlayer2 + white;
+							scoreDraw++;
+						}
+						if (number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white) {
+							one = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						if (number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white) {
+							two = colorPlayer2 + figurePlayer2 + white;
+							scoreDraw++;
+						}
+						if (number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white) {
+							two = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						if (number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white) {
+							three = colorPlayer2 + figurePlayer2 + white;
+							scoreDraw++;
+						}
+						if (number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white) {
+							three = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						if (number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white) {
+							four = colorPlayer2 + figurePlayer2 + white;
+							scoreDraw++;
+						}
+						if (number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white) {
+							four = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						if (number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white) {
+							five = colorPlayer2 + figurePlayer2 + white;
+							scoreDraw++;
+						}
+						if (number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white) {
+							five = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						if (number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white) {
+							six = colorPlayer2 + figurePlayer2 + white;
+							scoreDraw++;
+						}
+						if (number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white) {
+							six = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+							scoreSubPlayer = 1;
+						}
+						if (number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white) {
+							seven = colorPlayer2 + figurePlayer2 + white;
+							scoreDraw++;
+						}
+						if (number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white) {
+							seven = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						if (number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white) {
+							eight = colorPlayer2 + figurePlayer2 + white;
+							scoreDraw++;
+						}
+						if (number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white) {
+							eight = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						if (number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white) {
+							nine = colorPlayer2 + figurePlayer2 + white;
+							scoreDraw++;
+						}
+						if (number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+							nine = colorPlayer1 + figurePlayer1 + white;
+							scoreDraw++;
+						}
+						system("cls");
+						cout << "'Крестики нолики'\t\t\t| Информация\n\n";
+						cout << "\t\t" << one << " | " << two << " | " << three << information[0] << endl;
+						cout << "\t\t- - - - -\n";
+						cout << "\t\t" << four << " | " << five << " | " << six << information[1] << endl;
+						cout << "\t\t- - - - -\n";
+						cout << "\t\t" << seven << " | " << eight << " | " << nine << information[2] << endl << endl;
+						cout << information[3];
+						cout << information[4];
+						cout << information[5];
+						cout << information[6];
+						cout << information[7];
+						if (x == 0) {
+							cout << "Ходит игрок '" << colorPlayer[1] << player[1] << white << "': " << colorInputOutput << number << white;
+						}
+						else {
+							cout << "Ходит игрок '" << colorPlayer[0] << player[0] << white << "': " << colorInputOutput << number << white;
+						}
+						cout << information[8];
+						if (one == colorPlayer1 + figurePlayer1 + white and two == colorPlayer1 + figurePlayer1 + white and three == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							losePlayer2++;
+							result = 1;
+						}
+						if (one == colorPlayer1 + figurePlayer1 + white and four == colorPlayer1 + figurePlayer1 + white and seven == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							losePlayer2++;
+							result = 1;
+						}
+						if (one == colorPlayer1 + figurePlayer1 + white and five == colorPlayer1 + figurePlayer1 + white and nine == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							losePlayer2++;
+							result = 1;
+						}
+						if (seven == colorPlayer1 + figurePlayer1 + white and eight == colorPlayer1 + figurePlayer1 + white and nine == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							losePlayer2++;
+							result = 1;
+						}
+						if (seven == colorPlayer1 + figurePlayer1 + white and five == colorPlayer1 + figurePlayer1 + white and three == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							losePlayer2++;
+							result = 1;
+						}
+						if (nine == colorPlayer1 + figurePlayer1 + white and six == colorPlayer1 + figurePlayer1 + white and three == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							losePlayer2++;
+							result = 1;
+						}
+						if (two == colorPlayer1 + figurePlayer1 + white and five == colorPlayer1 + figurePlayer1 + white and eight == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							losePlayer2++;
+							result = 1;
+						}
+						if (four == colorPlayer1 + figurePlayer1 + white and five == colorPlayer1 + figurePlayer1 + white and six == colorPlayer1 + figurePlayer1 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer1 << nickPlayer1 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer1++;
+							losePlayer2++;
+							result = 1;
+						}
+						if (one == colorPlayer2 + figurePlayer2 + white and two == colorPlayer2 + figurePlayer2 + white and three == colorPlayer2 + figurePlayer2 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer2 << nickPlayer2 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer2++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (one == colorPlayer2 + figurePlayer2 + white and four == colorPlayer2 + figurePlayer2 + white and seven == colorPlayer2 + figurePlayer2 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer2 << nickPlayer2 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer2++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (one == colorPlayer2 + figurePlayer2 + white and five == colorPlayer2 + figurePlayer2 + white and nine == colorPlayer2 + figurePlayer2 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer2 << nickPlayer2 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer2++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (seven == colorPlayer2 + figurePlayer2 + white and eight == colorPlayer2 + figurePlayer2 + white and nine == colorPlayer2 + figurePlayer2 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer2 << nickPlayer2 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer2++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (seven == colorPlayer2 + figurePlayer2 + white and five == colorPlayer2 + figurePlayer2 + white and three == colorPlayer2 + figurePlayer2 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer2 << nickPlayer2 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer2++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (nine == colorPlayer2 + figurePlayer2 + white and six == colorPlayer2 + figurePlayer2 + white and three == colorPlayer2 + figurePlayer2 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer2 << nickPlayer2 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer2++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (two == colorPlayer2 + figurePlayer2 + white and five == colorPlayer2 + figurePlayer2 + white and eight == colorPlayer2 + figurePlayer2 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer2 << nickPlayer2 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer2++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (four == colorPlayer2 + figurePlayer2 + white and five == colorPlayer2 + figurePlayer2 + white and six == colorPlayer2 + figurePlayer2 + white) {
+							cout << endl << endl << "Победил игрок '" << colorPlayer2 << nickPlayer2 << white << "'! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							winPlayer2++;
+							losePlayer1++;
+							result = 1;
+						}
+						if (scoreDraw == 9) {
+							cout << endl << endl << "Ничья! Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							drawPlayer1++;
+							drawPlayer2++;
+							result = 1;
+						}
+						system("cls");
+						cout << "'Крестики нолики'\t\t\t| Информация\n\n";
+						cout << "\t\t" << one << " | " << two << " | " << three << information[0] << endl;
+						cout << "\t\t- - - - -\n";
+						cout << "\t\t" << four << " | " << five << " | " << six << information[1] << endl;
+						cout << "\t\t- - - - -\n";
+						cout << "\t\t" << seven << " | " << eight << " | " << nine << information[2] << endl << endl;
+						cout << information[3];
+						cout << information[4];
+						cout << information[5];
+						cout << information[6];
+						cout << information[7];
+						cout << "Ходит игрок '" << colorPlayer[x] << player[x] << white << "': " << colorInputOutput;
+						if (result != 1) {
+							cin >> number;
+							cout << white;
+						}
+						cout << information[8];
+						if (number == "1" and player[x] == nickPlayer1 and one != colorPlayer1 + figurePlayer1 + white and one != colorPlayer2 + figurePlayer2 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "1" and player[x] == nickPlayer2 and one != colorPlayer2 + figurePlayer2 + white and one != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "2" and player[x] == nickPlayer1 and two != colorPlayer1 + figurePlayer1 + white and two != colorPlayer2 + figurePlayer2 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "2" and player[x] == nickPlayer2 and two != colorPlayer2 + figurePlayer2 + white and two != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "3" and player[x] == nickPlayer1 and three != colorPlayer1 + figurePlayer1 + white and three != colorPlayer2 + figurePlayer2 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "3" and player[x] == nickPlayer2 and three != colorPlayer2 + figurePlayer2 + white and three != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "4" and player[x] == nickPlayer1 and four != colorPlayer1 + figurePlayer1 + white and four != colorPlayer2 + figurePlayer2 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "4" and player[x] == nickPlayer2 and four != colorPlayer2 + figurePlayer2 + white and four != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "5" and player[x] == nickPlayer1 and five != colorPlayer1 + figurePlayer1 + white and five != colorPlayer2 + figurePlayer2 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "5" and player[x] == nickPlayer2 and five != colorPlayer2 + figurePlayer2 + white and five != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "6" and player[x] == nickPlayer1 and six != colorPlayer1 + figurePlayer1 + white and six != colorPlayer2 + figurePlayer2 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "6" and player[x] == nickPlayer2 and six != colorPlayer2 + figurePlayer2 + white and six != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "7" and player[x] == nickPlayer1 and seven != colorPlayer1 + figurePlayer1 + white and seven != colorPlayer2 + figurePlayer2 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "7" and player[x] == nickPlayer2 and seven != colorPlayer2 + figurePlayer2 + white and seven != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "8" and player[x] == nickPlayer1 and eight != colorPlayer1 + figurePlayer1 + white and eight != colorPlayer2 + figurePlayer2 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "8" and player[x] == nickPlayer2 and eight != colorPlayer2 + figurePlayer2 + white and eight != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "9" and player[x] == nickPlayer1 and nine != colorPlayer1 + figurePlayer1 + white and nine != colorPlayer2 + figurePlayer2 + white) {
+							scoreSubPlayer = 1;
+						}
+						if (number == "9" and player[x] == nickPlayer2 and nine != colorPlayer2 + figurePlayer2 + white and nine != colorPlayer1 + figurePlayer1 + white) {
+							scoreSubPlayer = 1;
+						}
+					}
+					break;
+				case 3:
+					scorePlay++;
+					break;
+				default:
+					system("cls");
+					cout << red << "Ошибка " << white << "при выборе варианта игры. Для выхода введите любое не пустое значение: " << colorInputOutput;
+					cin >> empty;
+					cout << white;
+					break;
+				}
+			}
+			break;
+		case 2:
+			if (scoreStatistics == 1) {
+				scoreStatistics--;
+			}
+			while (scoreStatistics != 1) {
+				system("cls");
+				pointsPlayer1 = 0;
+				pointsPlayer2 = 0;
+				pointsComputer = 0;
+				pointsPlayer1 = winPlayer1 * 5 - drawPlayer1 * 1.2 - losePlayer1 * 6;
+				pointsPlayer2 = winPlayer2 * 5 - drawPlayer2 * 1.2 - losePlayer2 * 6;
+				pointsComputer = winComputer * 5 - drawComputer * 1.2 - loseComputer * 6;
+				cout << "Статистика\n\n";
+				cout << "\t\t\t\t" << green << "W\t\t" << red << "L\t\t" << grey << "D\t" << white << "|\tОчки\n";
+				cout << colorNumber << "1" << white << " | Игрок '" << colorPlayer1 << nickPlayer1 << white << "'\t\t" << winPlayer1 << "\t\t" << losePlayer1 << "\t\t" << drawPlayer1 << "\t|\t" << yellow << pointsPlayer1 << endl;
+				cout << colorNumber << "2" << white << " | Игрок '" << colorPlayer2 << nickPlayer2 << white << "'\t\t" << winPlayer2 << "\t\t" << losePlayer2 << "\t\t" << drawPlayer2 << "\t|\t" << yellow << pointsPlayer2 << endl;
+				cout << colorNumber << "3" << white << " | Компьютер\t\t\t" << winComputer << "\t\t" << loseComputer << "\t\t" << drawComputer << "\t|\t" << yellow << pointsComputer << endl << endl;
+				cout << colorNumber << "4" << white << " - Назад.\n\n";
+				cout << "Ввод: " << colorInputOutput;
+				cin >> choiceStatistics;
+				cout << white;
+				switch (choiceStatistics) {
+				case 4:
+					scoreStatistics++;
+					break;
+				default:
+					system("cls");
+					cout << red << "Ошибка " << white << "при выходе из раздела со статистикой. Чтобы выйти из раздела статистики, введите в разделе статистики '4'. Для выхода введите любое не пустое значение: " << colorInputOutput;
+					cin >> empty;
+					cout << white;
+					break;
+				}
+			}
+			break;
+		case 3:
+			if (scoreSettings == 1) {
+				scoreSettings--;
+			}
+			while (scoreSettings != 1) {
+				system("cls");
+				cout << "Настройки\n\n";
+				cout << colorNumber << "1" << white << " - Настройки игрока;\n";
+				cout << colorNumber << "2" << white << " - Настройки компьтера;\n";
+				cout << colorNumber << "3" << white << " - Настройки темы интерфейса;\n";
+				cout << colorNumber << "4" << white << " - Назад.\n\n";
+				cout << "Ввод: " << colorInputOutput;
+				cin >> choiceSettings;
+				cout << white;
+				switch (choiceSettings) {
+				case 1:
+					if (scoreSettingsPlayer == 1) {
+						scoreSettingsPlayer--;
+					}
+					while (scoreSettingsPlayer != 1) {
+						system("cls");
+						cout << "Настройки игрока\n\n";
+						cout << colorNumber << "1" << white << " - Игрок '" << colorPlayer1 << nickPlayer1 << white << "'\n";
+						cout << colorNumber << "2" << white << " - Игрок '" << colorPlayer2 << nickPlayer2 << white << "'\n";
+						cout << colorNumber << "3" << white << " - Назад\n\n";
+						cout << "Ввод: " << colorInputOutput;
+						cin >> choiceSettingsPlayer;
+						cout << white;
+						switch (choiceSettingsPlayer) {
+						case 1:
+							if (scoreSettingsPlayer1 == 1) {
+								scoreSettingsPlayer1--;
+							}
+							while (scoreSettingsPlayer1 != 1) {
+								system("cls");
+								cout << "Настройки игрока '" << colorPlayer1 << nickPlayer1 << white << "'\n\n";
+								cout << colorNumber << "1" << white << " - Ник\t\t: " << colorInputOutput << nickPlayer1 << white << endl;
+								cout << colorNumber << "2" << white << " - Фигура\t: " << colorInputOutput << figurePlayer1 << white << endl;
+								cout << colorNumber << "3" << white << " - Цвет\t: " << colorPlayer1 << textColorPlayer1 << white << endl;
+								cout << colorNumber << "4" << white << " - Назад\n\n";
+								cout << "Ввод: " << colorInputOutput;
+								cin >> choiceSettingsPlayer1;
+								cout << white;
+								switch (choiceSettingsPlayer1) {
+								case 1:
+									if (scoreNick == 1) {
+										scoreNick--;
+									}
+									while (scoreNick != 1) {
+										system("cls");
+										cout << "Редактирование ника\n\n";
+										cout << "Текущий ник: " << colorInputOutput << nickPlayer1 << white << endl;
+										cout << "Введите новый ник: " << colorInputOutput;
+										cin >> newNick;
+										cout << white << endl;
+										cout << "Сохранить ник?\n";
+										cout << colorNumber << "1" << white << " - Да\n";
+										cout << colorNumber << "2" << white << " - Нет\n\n";
+										cout << "Ввод: " << colorInputOutput;
+										cin >> choiceNick;
+										cout << white;
+										switch (choiceNick) {
+										case 1:
+											scoreNick++;
+											nickPlayer1 = newNick;
+											break;
+										case 2:
+											scoreNick++;
+											break;
+										default:
+											system("cls");
+											cout << red << "Ошибка " << white << "при выборе пункта настроек ника игрока '" << colorPlayer1 << nickPlayer1 << white << "'. Для выхода введите любое не пустое значение: " << colorInputOutput;
+											cin >> empty;
+											cout << white;
+											break;
+										}
+									}
+									break;
+								case 2:
+									if (scoreFigure == 1) {
+										scoreFigure--;
+									}
+									while (scoreFigure != 1) {
+										system("cls");
+										cout << "Редактирование фигуры\n\n";
+										cout << "Текущая фигура: " << colorInputOutput << figurePlayer1 << white << endl;
+										cout << "Введите новую фигуру: " << colorInputOutput;
+										cin >> newFigure;
+										cout << white << endl;
+										cout << "Сохранить фигуру?\n";
+										cout << colorNumber << "1" << white << " - Да\n";
+										cout << colorNumber << "2" << white << " - Нет\n\n";
+										cout << "Ввод: " << colorInputOutput;
+										cin >> choiceFigure;
+										cout << white;
+										switch (choiceFigure) {
+										case 1:
+											scoreFigure++;
+											figurePlayer1 = newFigure;
+											break;
+										case 2:
+											scoreFigure++;
+											break;
+										default:
+											system("cls");
+											cout << red << "Ошибка " << white << "при выборе пункта настроек фигуры игрока '" << colorPlayer1 << nickPlayer1 << white << "'. Для выхода введите любое не пустое значение: " << colorInputOutput;
+											cin >> empty;
+											cout << white;
+											break;
+										}
+									}
+									break;
+								case 3:
+									if (scoreColor == 1) {
+										scoreColor--;
+									}
+									while (scoreColor != 1) {
+										system("cls");
+										cout << "Редактирование цвета\n\n";
+										cout << "Текущий цвет: " << colorPlayer1 << textColorPlayer1 << white << endl;
+										cout << "Доступные цвета:\n\n";
+										cout << colorNumber << "1" << white << " - " << red << "Красный" << white << "; \n";
+										cout << colorNumber << "2" << white << " - " << green << "Зелёный" << white << ";\n";
+										cout << colorNumber << "3" << white << " - " << yellow << "Жёлтый" << white << ";\n";
+										cout << colorNumber << "4" << white << " - " << blue << "Синий" << white << ";\n";
+										cout << colorNumber << "5" << white << " - " << purple << "Фиолетовый" << white << ";\n";
+										cout << colorNumber << "6" << white << " - " << aqua << "Лазурный" << white << ";\n";
+										cout << colorNumber << "7" << white << " - " << grey << "Серый" << white << ";\n";
+										cout << colorNumber << "8" << white << " - Белый;\n";
+										cout << colorNumber << "9" << white << " - Назад.\n\n";
+										cout << "Ввод: " << colorInputOutput;
+										cin >> choiceColor;
+										cout << white;
+										switch (choiceColor) {
+										case 1:
+											scoreColor++;
+											colorPlayer1 = red;
+											textColorPlayer1 = "Красный";
+											break;
+										case 2:
+											scoreColor++;
+											colorPlayer1 = green;
+											textColorPlayer1 = "Зелёный";
+											break;
+										case 3:
+											scoreColor++;
+											colorPlayer1 = yellow;
+											textColorPlayer1 = "Жёлтый";
+											break;
+										case 4:
+											scoreColor++;
+											colorPlayer1 = blue;
+											textColorPlayer1 = "Синий";
+											break;
+										case 5:
+											scoreColor++;
+											colorPlayer1 = purple;
+											textColorPlayer1 = "Фиолетовый";
+											break;
+										case 6:
+											scoreColor++;
+											colorPlayer1 = aqua;
+											textColorPlayer1 = "Лазурный";
+											break;
+										case 7:
+											scoreColor++;
+											colorPlayer1 = grey;
+											textColorPlayer1 = "Серый";
+											break;
+										case 8:
+											scoreColor++;
+											colorPlayer1 = white;
+											textColorPlayer1 = "Белый";
+											break;
+										case 9:
+											scoreColor++;
+											break;
+										default:
+											system("cls");
+											cout << red << "Ошибка " << white << "при выборе пункта настроек цвета игрока '" << colorPlayer1 << nickPlayer1 << white << "'. Для выхода введите любое не пустое значение: " << colorInputOutput;
+											cin >> empty;
+											cout << white;
+											break;
+										}
+									}
+									break;
+								case 4:
+									system("cls");
+									scoreSettingsPlayer1++;
+									break;
+								default:
+									system("cls");
+									cout << red << "Ошибка " << white << "при выборе пункта настроек игрока '" << colorPlayer1 << nickPlayer1 << white << "'. Для выхода введите любое не пустое значение: " << colorInputOutput;
+									cin >> empty;
+									cout << white;
+									break;
+								}
+							}
+							break;
+						case 2:
+							if (scoreSettingsPlayer2 == 1) {
+								scoreSettingsPlayer2--;
+							}
+							while (scoreSettingsPlayer2 != 1) {
+								system("cls");
+								cout << "Настройки игрока '" << colorPlayer2 << nickPlayer2 << white << "'\n\n";
+								cout << colorNumber << "1" << white << " - Ник\t\t: " << colorInputOutput << nickPlayer2 << white << endl;
+								cout << colorNumber << "2" << white << " - Фигура\t: " << colorInputOutput << figurePlayer2 << white << endl;
+								cout << colorNumber << "3" << white << " - Цвет\t: " << colorPlayer2 << textColorPlayer2 << white << endl;
+								cout << colorNumber << "4" << white << " - Назад\n\n";
+								cout << "Ввод: " << colorInputOutput;
+								cin >> choiceSettingsPlayer2;
+								cout << white;
+								switch (choiceSettingsPlayer2) {
+								case 1:
+									if (scoreNick == 1) {
+										scoreNick--;
+									}
+									while (scoreNick != 1) {
+										system("cls");
+										cout << "Редактирование ника\n\n";
+										cout << "Текущий ник: " << colorInputOutput << nickPlayer2 << white << endl;
+										cout << "Введите новый ник: " << colorInputOutput;
+										cin >> newNick;
+										cout << white << endl;
+										cout << "Сохранить ник?\n";
+										cout << colorNumber << "1" << white << " - Да\n";
+										cout << colorNumber << "2" << white << " - Нет\n\n";
+										cout << "Ввод: " << colorInputOutput;
+										cin >> choiceNick;
+										cout << white;
+										switch (choiceNick) {
+										case 1:
+											scoreNick++;
+											nickPlayer2 = newNick;
+											break;
+										case 2:
+											scoreNick++;
+											break;
+										default:
+											system("cls");
+											cout << red << "Ошибка " << white << "при выборе пункта настроек ника игрока '" << colorPlayer2 << nickPlayer2 << white << "'. Для выхода введите любое не пустое значение: " << colorInputOutput;
+											cin >> empty;
+											cout << white;
+											break;
+										}
+									}
+									break;
+								case 2:
+									if (scoreFigure == 1) {
+										scoreFigure--;
+									}
+									while (scoreFigure != 1) {
+										system("cls");
+										cout << "Редактирование фигуры\n\n";
+										cout << "Текущая фигура: " << colorInputOutput << figurePlayer2 << white << endl;
+										cout << "Введите новую фигуру: " << colorInputOutput;
+										cin >> newFigure;
+										cout << white << endl;
+										cout << "Сохранить фигуру?\n";
+										cout << colorNumber << "1" << white << " - Да\n";
+										cout << colorNumber << "2" << white << " - Нет\n\n";
+										cout << "Ввод: " << colorInputOutput;
+										cin >> choiceFigure;
+										cout << white;
+										switch (choiceFigure) {
+										case 1:
+											scoreFigure++;
+											figurePlayer2 = newFigure;
+											break;
+										case 2:
+											scoreFigure++;
+											break;
+										default:
+											system("cls");
+											cout << red << "Ошибка " << white << "при выборе пункта настроек фигуры игрока '" << colorPlayer2 << nickPlayer2 << white << "'. Для выхода введите любое не пустое значение: " << colorInputOutput;
+											cin >> empty;
+											cout << white;
+											break;
+										}
+									}
+									break;
+								case 3:
+									if (scoreColor == 1) {
+										scoreColor--;
+									}
+									while (scoreColor != 1) {
+										system("cls");
+										cout << "Редактирование цвета\n\n";
+										cout << "Текущий цвет: " << colorPlayer2 << textColorPlayer2 << white << endl;
+										cout << "Доступные цвета:\n\n";
+										cout << colorNumber << "1" << white << " - " << red << "Красный" << white << "; \n";
+										cout << colorNumber << "2" << white << " - " << green << "Зелёный" << white << ";\n";
+										cout << colorNumber << "3" << white << " - " << yellow << "Жёлтый" << white << ";\n";
+										cout << colorNumber << "4" << white << " - " << blue << "Синий" << white << ";\n";
+										cout << colorNumber << "5" << white << " - " << purple << "Фиолетовый" << white << ";\n";
+										cout << colorNumber << "6" << white << " - " << aqua << "Лазурный" << white << ";\n";
+										cout << colorNumber << "7" << white << " - " << grey << "Серый" << white << ";\n";
+										cout << colorNumber << "8" << white << " - Белый;\n";
+										cout << colorNumber << "9" << white << " - Назад.\n\n";
+										cout << "Ввод: " << colorInputOutput;
+										cin >> choiceColor;
+										cout << white;
+										switch (choiceColor) {
+										case 1:
+											scoreColor++;
+											colorPlayer2 = red;
+											textColorPlayer2 = "Красный";
+											break;
+										case 2:
+											scoreColor++;
+											colorPlayer2 = green;
+											textColorPlayer2 = "Зелёный";
+											break;
+										case 3:
+											scoreColor++;
+											colorPlayer2 = yellow;
+											textColorPlayer2 = "Жёлтый";
+											break;
+										case 4:
+											scoreColor++;
+											colorPlayer2 = blue;
+											textColorPlayer2 = "Синий";
+											break;
+										case 5:
+											scoreColor++;
+											colorPlayer2 = purple;
+											textColorPlayer2 = "Фиолетовый";
+											break;
+										case 6:
+											scoreColor++;
+											colorPlayer2 = aqua;
+											textColorPlayer2 = "Лазурный";
+											break;
+										case 7:
+											scoreColor++;
+											colorPlayer2 = grey;
+											textColorPlayer2 = "Серый";
+											break;
+										case 8:
+											scoreColor++;
+											colorPlayer2 = white;
+											textColorPlayer2 = "Белый";
+											break;
+										case 9:
+											scoreColor++;
+											break;
+										default:
+											system("cls");
+											cout << red << "Ошибка " << white << "при выборе пункта настроек цвета игрока '" << colorPlayer2 << nickPlayer2 << white << "'. Для выхода введите любое не пустое значение: " << colorInputOutput;
+											cin >> empty;
+											cout << white;
+											break;
+										}
+									}
+									break;
+								case 4:
+									system("cls");
+									scoreSettingsPlayer2++;
+									break;
+								default:
+									system("cls");
+									cout << red << "Ошибка " << white << "при выборе пункта настроек игрока '" << colorPlayer2 << nickPlayer2 << white << "'. Для выхода введите любое не пустое значение: " << colorInputOutput;
+									cin >> empty;
+									cout << white;
+									break;
+								}
+							}
+							break;
+						case 3:
+							system("cls");
+							scoreSettingsPlayer++;
+							break;
+						default:
+							system("cls");
+							cout << red << "Ошибка " << white << "при выборе пункта настроек игроков. Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							break;
+						}
+					}
+					break;
+				case 2:
+					if (scoreSettingsComputer == 1) {
+						scoreSettingsComputer--;
+					}
+					while (scoreSettingsComputer != 1) {
+						system("cls");
+						cout << "Настройки компьютера\n\n";
+						cout << colorNumber << "1" << white << " - Фигура\t: " << colorInputOutput << figureComputer << white << endl;
+						cout << colorNumber << "2" << white << " - Цвет\t: " << colorComputer << textColorComputer << white << endl;
+						cout << colorNumber << "3" << white << " - Назад\n\n";
+						cout << "Ввод: " << colorInputOutput;
+						cin >> choiceSettingsComputer;
+						cout << white;
+						switch (choiceSettingsComputer) {
+						case 1:
+							if (scoreFigure == 1) {
+								scoreFigure--;
+							}
+							while (scoreFigure != 1) {
+								system("cls");
+								cout << "Редактирование фигуры\n\n";
+								cout << "Текущая фигура: " << colorInputOutput << figureComputer << white << endl;
+								cout << "Введите новую фигуру: " << colorInputOutput;
+								cin >> newFigure;
+								cout << white << endl;
+								cout << "Сохранить фигуру?\n";
+								cout << colorNumber << "1" << white << " - Да\n";
+								cout << colorNumber << "2" << white << " - Нет\n\n";
+								cout << "Ввод: " << colorInputOutput;
+								cin >> choiceFigure;
+								cout << white;
+								switch (choiceFigure) {
+								case 1:
+									scoreFigure++;
+									figureComputer = newFigure;
+									break;
+								case 2:
+									scoreFigure++;
+									break;
+								default:
+									system("cls");
+									cout << red << "Ошибка " << white << "при выборе пункта настроек фигуры компьютера. Для выхода введите любое не пустое значение: " << colorInputOutput;
+									cin >> empty;
+									cout << white;
+									break;
+								}
+							}
+							break;
+						case 2:
+							if (scoreColor == 1) {
+								scoreColor--;
+							}
+							while (scoreColor != 1) {
+								system("cls");
+								cout << "Редактирование цвета\n\n";
+								cout << "Текущий цвет: " << colorComputer << textColorComputer << white << endl;
+								cout << "Доступные цвета:\n\n";
+								cout << colorNumber << "1" << white << " - " << red << "Красный" << white << "; \n";
+								cout << colorNumber << "2" << white << " - " << green << "Зелёный" << white << ";\n";
+								cout << colorNumber << "3" << white << " - " << yellow << "Жёлтый" << white << ";\n";
+								cout << colorNumber << "4" << white << " - " << blue << "Синий" << white << ";\n";
+								cout << colorNumber << "5" << white << " - " << purple << "Фиолетовый" << white << ";\n";
+								cout << colorNumber << "6" << white << " - " << aqua << "Лазурный" << white << ";\n";
+								cout << colorNumber << "7" << white << " - " << grey << "Серый" << white << ";\n";
+								cout << colorNumber << "8" << white << " - Белый;\n";
+								cout << colorNumber << "9" << white << " - Назад.\n\n";
+								cout << "Ввод: " << colorInputOutput;
+								cin >> choiceColor;
+								cout << white;
+								switch (choiceColor) {
+								case 1:
+									scoreColor++;
+									colorComputer = red;
+									textColorComputer = "Красный";
+									break;
+								case 2:
+									scoreColor++;
+									colorComputer = green;
+									textColorComputer = "Зелёный";
+									break;
+								case 3:
+									scoreColor++;
+									colorComputer = yellow;
+									textColorComputer = "Жёлтый";
+									break;
+								case 4:
+									scoreColor++;
+									colorComputer = blue;
+									textColorComputer = "Синий";
+									break;
+								case 5:
+									scoreColor++;
+									colorComputer = purple;
+									textColorComputer = "Фиолетовый";
+									break;
+								case 6:
+									scoreColor++;
+									colorComputer = aqua;
+									textColorComputer = "Лазурный";
+									break;
+								case 7:
+									scoreColor++;
+									colorComputer = grey;
+									textColorComputer = "Серый";
+									break;
+								case 8:
+									scoreColor++;
+									colorComputer = white;
+									textColorComputer = "Белый";
+									break;
+								case 9:
+									scoreColor++;
+									break;
+								default:
+									system("cls");
+									cout << red << "Ошибка " << white << "при выборе пункта настроек цвета компьютера. Для выхода введите любое не пустое значение: " << colorInputOutput;
+									cin >> empty;
+									cout << white;
+									break;
+								}
+							}
+							break;
+						case 3:
+							system("cls");
+							scoreSettingsComputer++;
+							break;
+						default:
+							system("cls");
+							cout << red << "Ошибка " << white << "при выборе пункта настроек компьютера. Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							break;
+						}
+					}
+					break;
+				case 3:
+					if (scoreColorInterface == 1) {
+						scoreColorInterface--;
+					}
+					while (scoreColorInterface != 1) {
+						system("cls");
+						cout << "Настройки темы интерфейса\n\n";
+						cout << colorNumber << "1" << white << " - " << yellow << "Жёлтая" << white << " нумерация цветов, белое игровое поле и " << grey << "серые" << white << " вводимые и выводимые данные;\n";
+						cout << colorNumber << "2" << white << " - " << aqua << "Лазурная" << white << " нумерация цветов, " << grey << "серое" << white << " игровое поле и " << blue << "синии" << white << " вводимые и выводимые данные;\n";
+						cout << colorNumber << "3" << white << " - " << purple << "Фиолетовая" << white << " нумерация цветов, " << yellow << "жёлтое" << white << " игровое поле и " << aqua << "лазурные" << white << " вводимые и выводимые данные;\n";
+						cout << colorNumber << "4" << white << " - Назад.\n\n";
+						cout << "Ввод: " << colorInputOutput;
+						cin >> choiceColorInterface;
+						cout << white;
+						switch (choiceColorInterface) {
+						case 1:
+							scoreColorInterface++;
+							colorNumber = yellow;
+							colorField = white;
+							colorInputOutput = grey;
+							break;
+						case 2:
+							scoreColorInterface++;
+							colorNumber = aqua;
+							colorField = grey;
+							colorInputOutput = blue;
+							break;
+						case 3:
+							scoreColorInterface++;
+							colorNumber = purple;
+							colorField = yellow;
+							colorInputOutput = aqua;
+							break;
+						case 4:
+							scoreColorInterface++;
+							break;
+						default:
+							system("cls");
+							cout << red << "Ошибка " << white << "при выборе пункта настроек темы интерфейса. Для выхода введите любое не пустое значение: " << colorInputOutput;
+							cin >> empty;
+							cout << white;
+							break;
+						}
+					}
+					break;
+				case 4:
+					system("cls");
+					scoreSettings++;
+					break;
+				default:
+					system("cls");
+					cout << red << "Ошибка " << white << "при выборе пункта настроек. Для выхода введите любое не пустое значение: " << colorInputOutput;
+					cin >> empty;
+					cout << white;
+					break;
+				}
+			}
+			break;
+		case 4:
+			system("cls");
+			scoreMenu++;
+			break;
+		default:
+			system("cls");
+			cout << red << "Ошибка " << white << "при выборе пункта меню. Для выхода введите любое не пустое значение: " << colorInputOutput;
+			cin >> empty;
+			cout << white;
+			break;
+		}
+	}
+	int _; cin >> _;
+	return 0;
+}

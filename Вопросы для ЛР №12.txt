@@ -1,0 +1,72 @@
+1. Что такое HTML?
+    * a) Гипертекстовый макет языка
+    * b) Язык программирования
+    * c) Протокол передачи данных
+    * d) Графический редактор
+    * (a)
+2. Что обозначает аббревиатура "CSS" в веб-разработке?
+    * a) Computer Style Sheets
+    * b) Creative Style Selector
+    * c) Cascading Style Sheets
+    * d) Centralized Style Syntax
+    * (c)
+3. Какой язык программирования используется для разработки мобильных приложений под Android?
+    * a) Java
+    * b) JavaScript
+    * c) C#
+    * d) Python
+    * (a)
+4. Что означает аббревиатура "URL"?
+    * a) Uniform Resource Locator
+    * b) Universal Resource Locator
+    * c) Unified Resource Language
+    * d) User Registration Link
+    * (a)
+5. Какой вид атаки связан с злонамеренной подменой данных между клиентом и сервером?
+    * a) SQL-инъекция
+    * b) XSS-атака
+    * c) CSRF-атака
+    * d) DOS-атака
+    * (c)
+6. Что такое "API" в контексте программирования?
+    * a) Active Programming Interface
+    * b) Application Programming Interface
+    * c) Advanced Protocol Integration
+    * d) Automated Program Instance
+    * (b)
+7. Какой тип базы данных используется для хранения данных в таблицах с отношениями между ними?
+    * a) NoSQL
+    * b) SQLite
+    * c) MySQL
+    * d) Relational
+    * (d)
+8. Что такое "Git" в разработке ПО?
+    * a) Система управления базами данных
+    * b) Язык программирования
+    * c) Система управления версиями
+    * d) Графический дизайн
+    * (c)
+9. Какой язык программирования часто используется для анализа данных и машинного обучения?
+    * a) C++
+    * b) Ruby
+    * c) Python
+    * d) Swift
+    * (c)
+10. Что обозначает аббревиатура "IoT" в сфере информационных технологий?
+    * a) Internet of Things
+    * b) Internet of Telecommunications
+    * c) Information over Time
+    * d) Internet of Trends
+    * (a)
+11. Какая структура данных используется для хранения элементов в порядке "первый вошел, первый вышел" (FIFO)?
+    * a) Стек (Stack)
+    * b) Очередь (Queue)
+    * c) Массив (Array)
+    * d) Множество (Set)
+    * (b)
+12. Что означает аббревиатура "HTTP" в контексте веб-разработки?
+    * a) Hyper Transfer Text Protocol
+    * b) Hyperlink Text Transfer Protocol
+    * c) Hyper Text Transport Protocol
+    * d) Hypertext Transfer Protocol
+    * (d)

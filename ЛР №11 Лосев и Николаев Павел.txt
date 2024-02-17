@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+	setlocale(0,"");
+	int choice, length, i;
+	char texture;
+	string red;
+	red = "\x1b[91m";
+	cout << "Геометрические фигуры" << endl;
+	cout << "1 - Линия" << endl;
+	cout << "Выберите фигуру: ";
+	cin >> choice;
+	system("cls");
+	switch (choice) {
+	case 1:
+		cout << "Фигура 'линия'" << endl;
+		cout << "1 - Горизонтальная" << endl << "2 - Вертикальная" << endl;
+		cout << "Выберите направление линии: ";
+		cin >> choice;
+		switch (choice) {
+		case 1:
+			cout << "Длина линии: ";
+			cin >> length;
+			cout << "Текстура: ";
+			cin >> texture;
+			while (i <= length) {
+				cout << texture;
+				i++;
+			}
+			break;
+
+		case 2:
+			cout << "Длина линии: ";
+			cin >> length;
+			cout << "Текстура: ";
+			cin >> texture;
+			while (i <= length) {
+				cout << texture << endl;
+				i++;
+			}
+			break;
+		default:
+			cout << red << "Ошибка при выборе направления линии" << endl;
+			break;
+		}
+		break;
+	default:
+		cout << red << "Ошибка при выборе геометрической фигуры" << endl;
+		break;
+	}
+	int _; cin >> _;
+	return 0;
+}

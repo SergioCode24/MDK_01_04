@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+	setlocale(0,"");
+	int number;
+	int i = 1;
+	int x = 0;
+	string red = "\x1b[91m";
+	string white = "\x1b[0m";
+	while (x != 1) {
+		cout << white << "Введите число: ";
+		cin >> number;
+		if (number < 0 || number > 15) {
+			cout << red << "Ошибка" << endl;
+			continue;
+		}
+		if (number == 0) {
+			x = 1;
+			break;
+		}
+		while (i <= number) {
+			cout << white << "Цикл отработал. Круг " << i << endl;
+			i++;
+		}
+		i = 1;
+	}
+	int _; cin >> _;
+	return 0;
+}

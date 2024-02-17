@@ -1,0 +1,187 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+float addition(float firstNumber, float secondNumber) {;
+	return firstNumber + secondNumber;
+}
+float subtraction(float firstNumber, float secondNumber) {
+	return firstNumber - secondNumber;
+}
+float multiplication(float firstNumber, float secondNumber) {
+	return firstNumber * secondNumber;
+}
+float division(float firstNumber, float secondNumber) {
+	return firstNumber / secondNumber;
+}
+float divisionFromRemainder(int firstNumber, int secondNumber) {
+	return firstNumber % secondNumber;
+}
+float degree(float firstNumber, float secondNumber) {
+	return pow(firstNumber, secondNumber);
+}
+float radical(float firstNumber) {
+	return sqrt(firstNumber);
+}
+float cube(float firstNumber) {
+	return cbrt(firstNumber);
+}
+float sinus(float firstNumber) {
+	return sin(firstNumber);
+}
+float cosine(float firstNumber) {
+	return cos(firstNumber);
+}
+int main() {
+	setlocale(0, "");
+	int choice = 0;
+	int scoreMenu = 0;
+	float firstNumber = 0;
+	float secondNumber = 0;
+	float result = 0;
+	string red = "\x1b[91m";
+	string white = "\x1b[0m";
+	string empty = " ";
+	if (scoreMenu == 1) {
+		scoreMenu--;
+	}
+	while (scoreMenu != 1) {
+		system("cls");
+		cout << "Калькулятор\n\n";
+		cout << "Выберете операцию:\n\n";
+		cout << "1 - Сложение;\n";
+		cout << "2 - Вычитание;\n";
+		cout << "3 - Умножение;\n";
+		cout << "4 - Деление;\n";
+		cout << "5 - Деление от остатка;\n";
+		cout << "6 - Возведение в степень;\n";
+		cout << "7 - Извлечение квадтратного корня;\n";
+		cout << "8 - Извлечение кубического корня;\n";
+		cout << "9 - Вычисление синуса;\n";
+		cout << "10 - Вычисление косинуса.\n\n";
+		cout << "Ввод: ";
+		cin >> choice;
+		switch (choice) {
+		case 1:
+			scoreMenu++;
+			system("cls");
+			cout << "Введите первое слагаемое: ";
+			cin >> firstNumber;
+			cout << "Введите второе слагаемое: ";
+			cin >> secondNumber;
+			result = addition(firstNumber, secondNumber);
+			cout << "Результат: " << firstNumber << " + " << secondNumber << " = " << result;
+			break;
+		case 2:
+			scoreMenu++;
+			system("cls");
+			cout << "Введите уменьшаемое: ";
+			cin >> firstNumber;
+			cout << "Введите вычитаемое: ";
+			cin >> secondNumber;
+			result = subtraction(firstNumber, secondNumber);
+			cout << "Результат: " << firstNumber << " - " << secondNumber << " = " << result;
+			break;
+		case 3:
+			scoreMenu++;
+			system("cls");
+			cout << "Введите множимое: ";
+			cin >> firstNumber;
+			cout << "Введите множитель: ";
+			cin >> secondNumber;
+			result = multiplication(firstNumber, secondNumber);
+			cout << "Результат: " << firstNumber << " * " << secondNumber << " = " << result;
+			break;
+		case 4:
+			scoreMenu++;
+			system("cls");
+			cout << "Введите делимое: ";
+			cin >> firstNumber;
+			cout << "Введите делитель: ";
+			cin >> secondNumber;
+			if (secondNumber == 0) {
+				system("cls");
+				cout << red << "Ошибка." << white << " Делить на 0 запрещено. Для возвращения введите любое не пустое значение: ";
+				cin >> empty;
+				scoreMenu--;
+			}
+			else {
+				result = division(firstNumber, secondNumber);
+				cout << "Результат: " << firstNumber << " / " << secondNumber << " = " << result;
+			}
+			break;
+		case 5:
+			scoreMenu++;
+			system("cls");
+			cout << "Введите делимое: ";
+			cin >> firstNumber;
+			cout << "Введите делитель: ";
+			cin >> secondNumber;
+			if (secondNumber == 0) {
+				system("cls");
+				cout << red << "Ошибка." << white << " Делить на 0 запрещено. Для возвращения введите любое не пустое значение: ";
+				cin >> empty;
+				scoreMenu--;
+			}
+			else if (secondNumber != round(secondNumber)) {
+				system("cls");
+				cout << red << "Ошибка." << white << " Делить с остатком на дробные числа запрещено. Для возвращения введите любое не пустое значение: ";
+				cin >> empty;
+				scoreMenu--;
+			}
+			else {
+				result = divisionFromRemainder(firstNumber, secondNumber);
+				cout << "Результат: " << firstNumber << " % " << secondNumber << " = " << result;
+			}
+			break;
+		case 6:
+			scoreMenu++;
+			system("cls");
+			cout << "Введите основание степени: ";
+			cin >> firstNumber;
+			cout << "Введите показатель степени: ";
+			cin >> secondNumber;
+			result = degree(firstNumber, secondNumber);
+			cout << "Результат: " << firstNumber << " в степени " << secondNumber << " = " << result;
+			break;
+		case 7:
+			scoreMenu++;
+			system("cls");
+			cout << "Введите подкоренное число: ";
+			cin >> firstNumber;
+			result = radical(firstNumber);
+			cout << "Результат: квадратный корень из " << firstNumber << " = " << result;
+			break;
+		case 8:
+			scoreMenu++;
+			system("cls");
+			cout << "Введите подкоренное число: ";
+			cin >> firstNumber;
+			result = cube(firstNumber);
+			cout << "Результат: кубический корень из " << firstNumber << " = " << result;
+			break;
+		case 9:
+			scoreMenu++;
+			system("cls");
+			cout << "Введите число: ";
+			cin >> firstNumber;
+			result = sinus(firstNumber);
+			cout << "Результат: sin(" << firstNumber << ") = " << result;
+			break;
+		case 10:
+			scoreMenu++;
+			system("cls");
+			cout << "Введите число: ";
+			cin >> firstNumber;
+			result = cosine(firstNumber);
+			cout << "Результат: cos(" << firstNumber << ") = " << result;
+			break;
+		default:
+			system("cls");
+			cout << red << "Ошибка " << white << "при выборе пункта меню. Для возвращения введите любое не пустое значение: ";
+			cin >> empty;
+			break;
+		}
+	}
+	int _; cin >> _;
+	return 0;
+}

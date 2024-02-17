@@ -1,0 +1,132 @@
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(0, "");
+	unsigned int numberrandom1, numberrandom2, numberrandom3;
+	int choice, numberluckall, numbertry, numberlucknow;
+	string empty, red, green, white;
+	red = "\x1b[91m";
+	green = "\x1b[92m";
+	white = "\x1b[0m";
+	srand(time(0));
+	choice = 0;
+	numberluckall = 0;
+	numbertry = 5;
+	numberlucknow = 0;
+	numberrandom1 = 0;
+	numberrandom1 = rand() % 10 + 1;
+	numberrandom2 = 0;
+	numberrandom2 = rand() % 10 + 1;
+	numberrandom3 = 0;
+	numberrandom3 = rand() % 10 + 1;
+	cout << "1 - Начать игру" << endl;
+	cout << "2 - Выйти" << endl;
+	cout << "Выберать пункт меню: ";
+	cin >> choice;
+	switch (choice) {
+	case 2:
+		int _; cin >> _;
+		return 0;
+		break;
+	case 1:
+		while (numberluckall - 1) {
+			system("cls");
+			cout << "Угаданных чисел: [" << numberluckall << "/3]" << endl;
+			cout << "Попыток: [" << numbertry << "]" << endl;
+			cout << "Угадать число: ";
+			cin >> numberlucknow;
+			if (numberlucknow < 1 or numberlucknow > 10) {
+				cout << red << "Ошибка при вводе числа!" << white << " Попробуйте снова ввести число. Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (numberlucknow == numberrandom1) {
+				numbertry--;
+				numberluckall++;
+				system("cls");
+				cout << green << "Вы угадали число!" << white << " Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (numberlucknow != numberrandom1) {
+				numbertry--;
+				system("cls");
+				cout << red << "Вы не угадали число!" << white << " Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (numbertry == 0) {
+				system("cls");
+				cout << red << "Вы проиграли!" << white << " Для выхода введите любое не пустое значение: ";
+				cin >> empty; 
+				int _; cin >> _;
+				return 0;
+			}
+		}
+		while (numberluckall - 2) {
+			system("cls");
+			cout << "Угаданных чисел: [" << numberluckall << "/3]" << endl;
+			cout << "Попыток: [" << numbertry << "]" << endl;
+			cout << "Угадать число: ";
+			cin >> numberlucknow;
+			if (numberlucknow < 1 or numberlucknow > 10) {
+				cout << red << "Ошибка при вводе числа!" << white << " Попробуйте снова ввести число. Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (numberlucknow == numberrandom2) {
+				numbertry--;
+				numberluckall++;
+				system("cls");
+				cout << green << "Вы угадали число!" << white << " Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (numberlucknow != numberrandom2) {
+				numbertry--;
+				system("cls");
+				cout << red << "Вы не угадали число!" << white << " Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (numbertry == 0) {
+				system("cls");
+				cout << red << "Вы проиграли!" << white << " Для выхода введите любое не пустое значение: ";
+				cin >> empty;
+				int _; cin >> _;
+				return 0;
+			}
+		}
+		while (numberluckall - 3) {
+			system("cls");
+			cout << "Угаданных чисел: [" << numberluckall << "/3]" << endl;
+			cout << "Попыток: [" << numbertry << "]" << endl;
+			cout << "Угадать число: ";
+			cin >> numberlucknow;
+			if (numberlucknow < 1 or numberlucknow > 10) {
+				cout << red << "Ошибка при вводе числа!" << white << " Попробуйте снова ввести число. Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (numberlucknow == numberrandom3) {
+				numbertry--;
+				numberluckall++;
+				system("cls");
+				cout << green << "Вы угадали число!" << white << " Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (numberlucknow != numberrandom3) {
+				numbertry--;
+				system("cls");
+				cout << red << "Вы не угадали число!" << white << " Для продолжения введите любое не пустое значение: ";
+				cin >> empty;
+			}
+			if (numbertry == 0) {
+				system("cls");
+				cout << red << "Вы проиграли!" << white << " Для выхода введите любое не пустое значение: ";
+				cin >> empty;
+				int _; cin >> _;
+				return 0;
+			}
+		}
+		break;
+	default:
+		cout << red << "Ошибка при выборе пункта меню";
+		break;
+	}
+	int _; cin >> _;
+	return 0;
+}

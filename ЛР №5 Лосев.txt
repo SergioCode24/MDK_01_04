@@ -1,0 +1,81 @@
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(0, "");
+	int choice = 0;
+	float firstnumber = 0;
+	float secondnumber = 0;
+	float answer = 0;
+	int firstnumberforpercent = 0;
+	int secondnumberforpercent = 0;
+	string red = "\x1b[91m";
+	string white = "\x1b[0m";
+	string enter = "0";
+	cout << "1 - Сложение;\n";
+	cout << "2 - Вычитание;\n";
+	cout << "3 - Умножение;\n";
+	cout << "4 - Деление;\n";
+	cout << "5 - Деление от остатка;\n";
+	cout << "Выберите операцию: ";
+	cin >> choice;
+	switch (choice) {
+	case 1:
+		system("cls");
+		cout << "Введите первое число: ";
+		cin >> firstnumber;
+		cout << "Введите второе число: ";
+		cin >> secondnumber;
+		answer = firstnumber + secondnumber;
+		cout << "Результат: " << firstnumber << " + " << secondnumber << " = " << answer << endl;
+		break;
+	case 2:
+		system("cls");
+		cout << "Введите первое число: ";
+		cin >> firstnumber;
+		cout << "Введите второе число: ";
+		cin >> secondnumber;
+		answer = firstnumber - secondnumber;
+		cout << "Результат: " << firstnumber << " - " << secondnumber << " = " << answer << endl;
+		break;
+	case 3:
+		system("cls");
+		cout << "Введите первое число: ";
+		cin >> firstnumber;
+		cout << "Введите второе число: ";
+		cin >> secondnumber;
+		answer = firstnumber * secondnumber;
+		cout << "Результат: " << firstnumber << " x " << secondnumber << " = " << answer << endl;
+		break;
+	case 4:
+		while (secondnumber == 0) {
+			system("cls");
+			cout << "Введите первое число: ";
+			cin >> firstnumber;
+			cout << "Введите второе число: ";
+			cin >> secondnumber;
+			if (secondnumber == 0) {
+				cout << "Делить на 0 " << red << "нельзя" << white << "!\n";
+				cout << "Для продолжения введите любое не пустое значение: ";
+				cin >> enter;
+			}
+			answer = firstnumber / secondnumber;
+			cout << "Результат: " << firstnumber << " / " << secondnumber << " = " << answer << endl;
+		}
+		break;
+	case 5:
+		system("cls");
+		cout << "Введите первое число: ";
+		cin >> firstnumberforpercent;
+		cout << "Введите второе число: ";
+		cin >> secondnumberforpercent;
+		answer = firstnumberforpercent % secondnumberforpercent;
+		cout << "Результат: " << firstnumberforpercent << " % " << secondnumberforpercent << " = " << answer << endl;
+		break;
+	default:
+		system("cls");
+		cout << red << "Ошибка " << white << "при выборе операции!";
+		break;
+	}
+	int _; cin >> _;
+	return 0;
+}

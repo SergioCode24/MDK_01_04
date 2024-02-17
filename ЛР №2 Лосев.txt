@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(0, "");
+	int choice = 0;
+	string red, white, green, yellow, grey, aqua;
+	red = "\x1b[91m";
+	white = "\x1b[0m";
+	green = "\x1b[92m";
+	yellow = "\x1b[93m";
+	grey = "\x1b[90m";
+	aqua = "\x1b[96m";
+	cout << "Программа 'Времена года'" << endl;
+	cout << " " << endl;
+	cout << green << "1 - Лето" << endl;
+	cout << yellow << "2 - Осень" << endl;
+	cout << grey << "3 - Зима" << endl;
+	cout << aqua << "4 - Весна" << endl;
+	cout << " " << endl;
+	cout << white << "Введите значение: ";
+	cin >> choice;
+	if (choice == 1) {
+		cout << " " << endl;
+		cout << "Сейчас " << green << "лето" << white << ", следует надеть лёгкую одежду и взять с собой бутылочку " << aqua << "прохладной " << white << "воды.";
+	}
+	else if (choice == 2) {
+		cout << " " << endl;
+		cout << "Сейчас " << yellow << "осень" << white << ", следует " << red << "тепло " << white << "одеться и взять с собой зонт.";
+	}
+	else if (choice == 3) {
+		cout << " " << endl;
+		cout << "Сейчас " << grey << "зима" << white << ", следует очень " << red << "тепло " << white << "одеться и взять с собой бутылочку " << red << "горячей 5" << white << "воды.";
+	}
+	else if (choice == 4) {
+		cout << " " << endl;
+		cout << "Сейчас " << aqua << "весна" << white << ", следует " << red << "тепло " << white << "одеться и взять с собой дополнительную пару носок.";
+	}
+	else {
+		cout << " " << endl;
+		cout << red << "Ошибка " << white << "при выборе времени года: такого времени года не существует.";
+	}
+	int _; cin >> _;
+	return 0;
+	}

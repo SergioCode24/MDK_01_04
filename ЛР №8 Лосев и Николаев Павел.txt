@@ -1,0 +1,214 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+	setlocale(0,"");
+	int choice;
+	string orange, red, yellow, green, aqua, purple, blue, white;
+	orange = "\x1b[38;5;208m";
+	red = "\x1b[91m";
+	yellow = "\x1b[93m";
+	green = "\x1b[92m";
+	aqua = "\x1b[96m";
+	purple = "\x1b[95m";
+	blue = "\x1b[94m";
+	white = "\x1b[0m";
+	cout << "Переводчик" << endl;
+	cout << "1 - Русские слова" << endl;
+	cout << "2 - Английсие слова" << endl;
+	cout << "3 - Выйти" << endl;
+	cout << "Выберите пункт: ";
+	cin >> choice;
+
+	switch (choice) {
+
+	case 1:
+		cout << "Переводчик 'Список русских слов'" << endl;
+		cout << red << "1 - Дом" << endl;
+		cout << orange << "2 - Дорога" << endl;
+		cout << yellow << "3 - Кот" << endl;
+		cout << green << "4 - Собака" << endl;
+		cout << aqua << "5 - Пирог" << endl;
+		cout << blue << "6 - Часы" << endl;
+		cout << purple << "7 - Минута" << endl;
+		cout << red << "8 - Час" << endl;
+		cout << orange << "9 - Человек" << endl;
+		cout << yellow << "10 - Мужчина" << endl;
+		cout << green << "11 - Женщина" << endl;
+		cout << aqua << "12 - Люди" << endl;
+		cout << blue << "13 - Дверь" << endl;
+		cout << purple << "14 - Стол" << endl;
+		cout << red << "15 - Окно" << endl;
+		cout << white << "Выберите номер слова: ";
+		cin >> choice;
+
+		switch (choice) {
+
+		case 1:
+			cout << red << "Перевод: дом -> home" << endl;
+			break;
+
+		case 2:
+			cout << orange << "Перевод: дорога -> road" << endl;
+			break;
+
+		case 3:
+			cout << yellow << "Перевод: кот -> cat" << endl;
+			break;
+
+		case 4:
+			cout << green << "Перевод: собака -> dog" << endl;
+			break;
+
+		case 5:
+			cout << aqua << "Перевод: пирог -> pie" << endl;
+			break;
+
+		case 6:
+			cout << blue << "Перевод: часы -> watch" << endl;
+			break;
+
+		case 7:
+			cout << purple << "Перевод: минута -> minute" << endl;
+			break;
+
+		case 8:
+			cout << red << "Перевод: час -> hour" << endl;
+			break;
+
+		case 9:
+			cout << orange << "Перевод: человек -> human" << endl;
+			break;
+
+		case 10:
+			cout << yellow << "Перевод: мужчина -> man" << endl;
+			break;
+
+		case 11:
+			cout << green << "Перевод: женщина -> woman" << endl;
+			break;
+
+		case 12:
+			cout << aqua << "Перевод: люди -> people" << endl;
+			break;
+
+		case 13:
+			cout << blue << "Перевод: дверь -> door" << endl;
+			break;
+
+		case 14:
+			cout << purple << "Перевод: стол -> table" << endl;
+			break;
+
+		case 15:
+			cout << red << "Перевод: окно -> window" << endl;
+			break;
+
+		default:
+			cout << white << "Ошибка при выборе пункта" << endl;
+			break;
+		}
+		break;
+	
+	case 2:
+		cout << "Переводчик 'Список английских слов'" << endl;
+		cout << red << "1 - Home" << endl;
+		cout << orange << "2 - Road" << endl;
+		cout << yellow << "3 - Cat" << endl;
+		cout << green << "4 - Dog" << endl;
+		cout << aqua << "5 - Pie" << endl;
+		cout << blue << "6 - Watch" << endl;
+		cout << purple << "7 - Minute" << endl;
+		cout << red << "8 - Hour" << endl;
+		cout << orange << "9 - Human" << endl;
+		cout << yellow << "10 - Man" << endl;
+		cout << green << "11 - Woman" << endl;
+		cout << aqua << "12 - People" << endl;
+		cout << blue << "13 - Door" << endl;
+		cout << purple << "14 - Table" << endl;
+		cout << red << "15 - Window" << endl;
+		cout << white << "Выберите номер слова: ";
+		cin >> choice;
+
+		switch (choice) {
+
+		case 1:
+			cout << red << "Перевод: home -> дом" << endl;
+			break;
+
+		case 2:
+			cout << orange << "Перевод: road -> дорога" << endl;
+			break;
+
+		case 3:
+			cout << yellow << "Перевод: cat -> кот" << endl;
+			break;
+
+		case 4:
+			cout << green << "Перевод: dog -> собака" << endl;
+			break;
+
+		case 5:
+			cout << aqua << "Перевод: pie -> пирог" << endl;
+			break;
+
+		case 6:
+			cout << blue << "Перевод: watch -> часы" << endl;
+			break;
+
+		case 7:
+			cout << purple << "Перевод: minute -> минута" << endl;
+			break;
+
+		case 8:
+			cout << red << "Перевод: hour -> час" << endl;
+			break;
+
+		case 9:
+			cout << orange << "Перевод: human -> человек" << endl;
+			break;
+
+		case 10:
+			cout << yellow << "Перевод: man -> мужчина" << endl;
+			break;
+
+		case 11:
+			cout << green << "Перевод: woman -> женщина" << endl;
+			break;
+
+		case 12:
+			cout << aqua << "Перевод: people -> люди" << endl;
+			break;
+
+		case 13:
+			cout << blue << "Перевод: door -> дверь" << endl;
+			break;
+
+		case 14:
+			cout << purple << "Перевод: table -> стол" << endl;
+			break;
+
+		case 15:
+			cout << red << "Перевод: window -> окно" << endl;
+			break;
+
+		default:
+			cout << white << "Ошибка при выборе пункта" << endl;
+			break;
+		}
+		break;
+
+	case 3:
+		int _; cin >> _;
+		return 0;
+		break;
+
+	default:
+		cout << "Ошибка при выборе пункта" << endl;
+		break;
+}
+
+
+	int _; cin >> _;
+	return 0;
+}

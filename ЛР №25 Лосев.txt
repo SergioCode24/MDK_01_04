@@ -1,0 +1,176 @@
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(0, "");
+	int row = 0;
+	int column = 0;
+	int scoreColumn = 0;
+	int scoreRow = 0;
+	int jPlusOne = 0;
+	int choice = 0;
+	int scoreChoice = 0;
+	int arrUserTime = 0;
+	int arrOrderPoint = 0;
+	int result = 0;
+	int numberrandom = 0;
+	int* arrOrder;
+	int** arrUser;
+	string empty = " ";
+	string red = "\x1b[91m";
+	string green = "\x1b[92m";
+	string yellow = "\x1b[93m";
+	string blue = "\x1b[94m";
+	string white = "\x1b[0m";
+	srand(time(0));
+	cout << "Введите размер строки двумерного массива: ";
+	cin >> row;
+	cout << "Введите размер столбца двумерного массива: ";
+	cin >> column;
+	arrOrder = new int[row * column];
+	arrUser = new int* [row];
+	for (int i = 0; i < row; i++) {
+		arrUser[i] = new int[column];
+	}
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < column; j++) {
+			numberrandom = rand() % 50;
+			arrUser[i][j] = numberrandom;
+		}
+	}
+	cout << "Сортировка:\n";
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < column; j++) {
+			if (j % column == 0) {
+				cout << endl;
+			}
+			cout << arrUser[i][j];
+			cout << "\t";
+		}
+	}
+	while (scoreChoice != 1) {
+		if (scoreChoice == 1) {
+			scoreChoice--;
+		}
+		cout << "\n\n1 - По возрастанию\n";
+		cout << "2 - По убыванию\n";
+		cout << "Ввод: ";
+		cin >> choice;
+		switch (choice) {
+		case 1:
+			scoreChoice++;
+			for (int i = 0; i < row; i++) {
+				for (int j = 0; j < column; j++) {
+					arrOrder[arrOrderPoint] = arrUser[i][j];
+					arrOrderPoint++;
+				}
+			}
+			arrOrderPoint = 0;
+			for (int i = 0; i < (column * row) - 1; i++) {
+				for (int j = 0; j < (column * row) - 1; j++) {
+					int jPlusOne = 0;
+					jPlusOne = j + 1;
+					if (arrOrder[j] > arrOrder[jPlusOne]) {
+						arrUserTime = arrOrder[j];
+						arrOrder[j] = arrOrder[jPlusOne];
+						arrOrder[jPlusOne] = arrUserTime;
+					}
+				}
+			}
+			for (int i = 0; i < row; i++) {
+				for (int j = 0; j < column; j++) {
+					arrUser[i][j] = arrOrder[arrOrderPoint];
+					arrOrderPoint++;
+				}
+			}
+			for (int i = 0; i < row; i++) {
+				for (int j = 0; j < column; j++) {
+					if (j % column == 0) {
+						cout << endl;
+					}
+					if (arrUser[i][j] > 9 and arrUser[i][j] < 20) {
+						cout << green << arrUser[i][j] << white;
+						cout << "\t";
+					}
+					else if (arrUser[i][j] > 19 and arrUser[i][j] < 30) {
+						cout << blue << arrUser[i][j] << white;
+						cout << "\t";
+					}
+					else if (arrUser[i][j] > 29 and arrUser[i][j] < 40) {
+						cout << red << arrUser[i][j] << white;
+						cout << "\t";
+					}
+					else if (arrUser[i][j] > 39 and arrUser[i][j] < 50) {
+						cout << yellow << arrUser[i][j] << white;
+						cout << "\t";
+					}
+					else {
+						cout << arrUser[i][j];
+						cout << "\t";
+					}
+				}
+			}
+			break;
+		case 2:
+			scoreChoice++;
+			for (int i = 0; i < row; i++) {
+				for (int j = 0; j < column; j++) {
+					arrOrder[arrOrderPoint] = arrUser[i][j];
+					arrOrderPoint++;
+				}
+			}
+			arrOrderPoint = 0;
+			for (int i = 0; i < (column * row) - 1; i++) {
+				for (int j = 0; j < (column * row) - 1; j++) {
+					int jPlusOne = 0;
+					jPlusOne = j + 1;
+					if (arrOrder[j] < arrOrder[jPlusOne]) {
+						arrUserTime = arrOrder[j];
+						arrOrder[j] = arrOrder[jPlusOne];
+						arrOrder[jPlusOne] = arrUserTime;
+					}
+				}
+			}
+			for (int i = 0; i < row; i++) {
+				for (int j = 0; j < column; j++) {
+					arrUser[i][j] = arrOrder[arrOrderPoint];
+					arrOrderPoint++;
+				}
+			}
+			for (int i = 0; i < row; i++) {
+				for (int j = 0; j < column; j++) {
+					if (j % column == 0) {
+						cout << endl;
+					}
+					if (arrUser[i][j] > 9 and arrUser[i][j] < 20) {
+						cout << green << arrUser[i][j] << white;
+						cout << "\t";
+					}
+					else if (arrUser[i][j] > 19 and arrUser[i][j] < 30) {
+						cout << blue << arrUser[i][j] << white;
+						cout << "\t";
+					}
+					else if (arrUser[i][j] > 29 and arrUser[i][j] < 40) {
+						cout << red << arrUser[i][j] << white;
+						cout << "\t";
+					}
+					else if (arrUser[i][j] > 39 and arrUser[i][j] < 50) {
+						cout << yellow << arrUser[i][j] << white;
+						cout << "\t";
+					}
+					else {
+						cout << arrUser[i][j];
+						cout << "\t";
+					}
+				}
+			}
+			break;
+		default:
+			system("cls");
+			cout << red << "Ошибка " << white << "при выборе пункта меню. Для выхода введите любое не пустое значение: ";
+			cin >> empty;
+			break;
+		}
+	}
+	int _; cin >> _;
+	return 0;
+}

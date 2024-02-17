@@ -1,0 +1,137 @@
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(0, "");
+	float arrUser[7] = {};
+	int choice = 0;
+	int scoreChoice = 0;
+	int empty = 0;
+	string red = "\x1b[91m";
+	string white = "\x1b[0m";
+	int arrUserTime = 0;
+	int number = 0;
+	int scoreNumber = 0;
+	for (int i = 0; i < 7; i++) {
+		cout << "Инициализация | ячейка " << i << ": ";
+		cin >> arrUser[i];
+	}
+	while (scoreChoice != 1) {
+		if (scoreChoice == 1) {
+			scoreChoice--;
+		}
+		system("cls");
+		cout << "Настройки массива:\n\n";
+		cout << "1 - Сортировка по возрастанию\n";
+		cout << "2 - Сортировка по убыванию\n";
+		cout << "3 - Перемножить массив\n";
+		cout << "4 - Сложить массив\n";
+		cout << "5 - Разделить массив\n";
+		cout << "6 - Обнулить массив\n\n";
+		cout << "9 - Задать новые значения массиву\n";
+		cout << "Ввод: ";
+		cin >> choice;
+		switch (choice)
+		{
+		case 1:
+			scoreChoice++;
+			for (int i = 0; i < 6; i++) {
+				for (int j = 0; j < 6; j++) {
+					int jPlusOne = 0;
+					jPlusOne = j + 1;
+					if (arrUser[j] > arrUser[jPlusOne]) {
+						arrUserTime = arrUser[j];
+						arrUser[j] = arrUser[jPlusOne];
+						arrUser[jPlusOne] = arrUserTime;
+					}
+				}
+			}
+			system("cls");
+			for (int i = 0; i < 7; i++) {
+				cout << "Ячейка " << i << ": " << arrUser[i] << endl;
+			}
+			break;
+		case 2:
+			scoreChoice++;
+			for (int i = 0; i < 6; i++) {
+				for (int j = 0; j < 6; j++) {
+					int jPlusOne = 0;
+					jPlusOne = j + 1;
+					if (arrUser[j] < arrUser[jPlusOne]) {
+						arrUserTime = arrUser[j];
+						arrUser[j] = arrUser[jPlusOne];
+						arrUser[jPlusOne] = arrUserTime;
+					}
+				}
+			}
+			system("cls");
+			for (int i = 0; i < 7; i++) {
+				cout << "Ячейка " << i << ": " << arrUser[i] << endl;
+			}
+			break;
+		case 3:
+			system("cls");
+			scoreChoice++;
+			cout << "Введите число: ";
+			cin >> number;
+			cout << endl;
+			for (int i = 0; i < 7; i++) {
+				arrUser[i] = arrUser[i] * number;
+				cout << "Ячейка " << i << ": " << arrUser[i] << endl;
+			}
+			break;
+		case 4:
+			system("cls");
+			scoreChoice++;
+			cout << "Введите число: ";
+			cin >> number;
+			cout << endl;
+			for (int i = 0; i < 7; i++) {
+				arrUser[i] = arrUser[i] + number;
+				cout << "Ячейка " << i << ": " << arrUser[i] << endl;
+			}
+			break;
+		case 5:
+			scoreChoice++;
+			while (scoreNumber != 1) {
+				system("cls");
+				cout << "Введите число: ";
+				cin >> number;
+				cout << endl;
+				if (number == 0) {
+					cout << red << "Ошибка! " << white << "На 0 делить нельзя! Для выхода введите любое не пустое значение: ";
+					cin >> empty;
+				}
+				else {
+					scoreNumber++;
+				}
+			}
+			for (int i = 0; i < 7; i++) {
+				arrUser[i] = arrUser[i] / number;
+				cout << "Ячейка " << i << ": " << arrUser[i] << endl;
+			}
+			break;
+		case 6:
+			system("cls");
+			scoreChoice++;
+			for (int i = 0; i < 7; i++) {
+				arrUser[i] = 0;
+				cout << "Ячейка " << i << ": " << arrUser[i] << endl;
+			}
+			break;
+		case 9:
+			system("cls");
+			for (int i = 0; i < 7; i++) {
+				cout << "Инициализация | ячейка " << i << ": ";
+				cin >> arrUser[i];
+			}
+			break;
+		default:
+			system("cls");
+			cout << red << "Ошибка " << white << "при выборе пункта меню. Для выхода введите любое не пустое значение: ";
+			cin >> empty;
+			break;
+		}
+	}
+	int _; cin >> _;
+	return 0;
+}
